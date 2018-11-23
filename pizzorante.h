@@ -8,6 +8,7 @@
 #include <map>
 using namespace std;
 
+//  ALLERGENE
 typedef enum Allergene{
 	GLUTINE,
 	CROSTACEI,
@@ -24,6 +25,7 @@ typedef enum Allergene{
 	MOLLUSCHI
 }Allergene;
 
+// INGREDIENTE
 class Ingrediente {
 	private:
 		string nome;
@@ -41,9 +43,10 @@ class Ingrediente {
 		friend ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 };
 
-//bool operator < ( Ingrediente& _ingrediente1, Ingrediente& _ingrediente2) ;
 void test_Ingrediente();
 ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
+
+// DATA
 class Data {
 private:
     unsigned int anno,mese,giorno,ora,minuto,secondi;
@@ -56,12 +59,15 @@ public:
 
 ostream& operator << (ostream& os, Data& _data);
 void test_data();
+
+//REPARTO
 typedef enum Reparto{
 	PIZZERIA,
 	RISTORANTE,
 	BAR
 }Reparto;
 
+// PRODOTTO
 class Prodotto{
 	private:
 		string nome;
@@ -80,6 +86,7 @@ class Prodotto{
 		bool operator < (const Prodotto& _prodotto)const;
 };
 
+// ORDINE
 class Ordine{
 	private:
 		int id_ordine;

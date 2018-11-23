@@ -32,20 +32,34 @@ bool Ingrediente::operator < (const Ingrediente& _ingrediente)const{
 
 ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 	set<Allergene>::iterator iter;
-	os << ingrediente.nome << " " << ingrediente.id_ingrediente << " ";
+    os << ingrediente.nome << " ID: " << ingrediente.id_ingrediente << " " <<endl;
 	if (ingrediente.disponibile == true){
-		os << "Disponibile ";
+		os << "Disponibile "<<endl;
 	} else {
-		os << "Non disponibile ";
+        os << "Non disponibile "<<endl;
 	}
 	if (ingrediente.surgelato == true){
-		os << "Surgelato ";
+		os << "Surgelato"<<endl;
 	} else {
-		os << "Non surgelato ";
+		os << "Non surgelato "<<endl;
 	}
 	for(iter = ingrediente.nodeAllergeni.begin(); iter != ingrediente.nodeAllergeni.end(); iter++){
-		os << *iter;
-	}
+        switch(*iter){
+            case 0: os<< "Glutine" <<endl; break;
+            case 1: os<< "Crostacei" <<endl; break;
+            case 2: os<< "Uova" <<endl; break;
+            case 3: os<< "Pesce" <<endl; break;
+            case 4: os<< "Arachidi" <<endl; break;
+            case 5: os<< "Latte" <<endl; break;
+            case 6: os<< "Frutta a Guscio" <<endl; break;
+            case 7: os<< "Sedano" <<endl; break;
+            case 8: os<< "Senape" <<endl; break;
+            case 9: os<< "Semi di Sesamo" <<endl; break;
+            case 10: os<< "Anidride Solforosa" <<endl; break;
+            case 11: os<< "Lupini" <<endl; break;
+            case 12: os<< "Molluschi" <<endl; break;
+        }
+    }
 	return os;
 }
 
