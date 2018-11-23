@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "pizzorante.h"
 
 using namespace std;
 
@@ -7,9 +8,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
     
+    test_data();
     
-    
-    
+
     
     
 	return 0;
