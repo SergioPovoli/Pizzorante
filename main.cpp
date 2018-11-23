@@ -13,6 +13,8 @@ int main(int argc, char** argv) {
     test_data();
     cout<<endl;
     test_persona();
+    cout<<endl;
+    test_cliente();
     //test_Prodotto();
     
     

@@ -120,7 +120,7 @@ public:
 
 ostream& operator << (ostream& os, const Persona& _persona);
 void test_persona();
-#endif
+
 
 // CLIENTE
 
@@ -128,8 +128,12 @@ class Cliente: public Persona{
 private:
     string numero_tel;
 public:
-    Cliente(string, string, string);
-   friend ostream& operator <<(ostream& os, const Cliente& cliente);
+    Cliente(string _nome, string _cognome, string _numero_tel);
+   friend ostream& operator <<(ostream& os, const Cliente& _cliente);
 };
 
-ostream& operator <<(ostream& os, const Cliente& cliente);
+ostream& operator <<(ostream& os, const Cliente& _cliente);
+
+void test_cliente();
+
+#endif

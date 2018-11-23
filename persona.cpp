@@ -13,6 +13,4 @@ ostream& operator << (ostream& os, const Persona& _persona){
 void test_persona(){
     Persona p("Irene","Buffa");
     cout << p;
-    
 }
-
