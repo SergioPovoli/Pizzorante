@@ -24,6 +24,12 @@ set<Allergene> Ingrediente::get_allergeni (){
 	return nodeAllergeni;
 }
 
+bool Ingrediente::operator < (const Ingrediente& _ingrediente)const{
+	bool tmp;
+	tmp=(id_ingrediente < _ingrediente.id_ingrediente);
+	return tmp;
+}
+
 ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 	set<Allergene>::iterator iter;
 	os << ingrediente.nome << " " << ingrediente.id_ingrediente << " ";
