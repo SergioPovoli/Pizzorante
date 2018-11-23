@@ -64,18 +64,20 @@ typedef enum Reparto{
 
 class Prodotto{
 	private:
+		string nome;
 		Reparto reparto;
 		float costo;
 		bool disponibile;
 		set<Ingrediente> ingredienti;
 		set<Allergene> allergeni;
 	public:
-		Prodotto(Reparto _reparto, float _costo);
+		Prodotto(string _nome, Reparto _reparto, float _costo);
 		void set_disponibile(bool _disponibile);
 		void set_ingredienti(const Ingrediente _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
 		bool get_disponibile();
 		float get_costo();
+		bool operator < (const Prodotto& _prodotto)const;
 };
 
 class Ordine{

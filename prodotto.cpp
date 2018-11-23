@@ -1,9 +1,9 @@
 #include "pizzorante.h"
 
-Prodotto::Prodotto(Reparto _reparto, float _costo){
+Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 	reparto = _reparto;
 	costo = _costo;
-	
+	nome = _nome;
 }
 
 void Prodotto::set_disponibile(bool _disponibile){
@@ -35,4 +35,8 @@ bool Prodotto::get_disponibile(){
 
 float Prodotto::get_costo(){
 	return costo;
+}
+
+bool Prodotto::operator < (const Prodotto& _prodotto)const{
+	return (nome < _prodotto.nome);
 }
