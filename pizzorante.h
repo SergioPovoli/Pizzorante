@@ -6,7 +6,15 @@
 
 using namespace std;
 
-
+class Ingrediente {
+	private:
+		string nome;
+		int id_ingrediente;
+		bool disponibile;
+		bool surgelato;
+		
+	public:
+};
 
 
 #endif
