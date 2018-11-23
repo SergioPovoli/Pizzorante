@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
     
     
     
-    printf("ANAL GRANELLI\n");
+
     
     
     
