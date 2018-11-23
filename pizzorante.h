@@ -86,6 +86,7 @@ class Prodotto{
 		friend ostream& operator << (ostream& os, const Prodotto& _prodotto);
 };
 
+
 ostream& operator << (ostream& os, const Prodotto& _prodotto);
 void test_Prodotto();
 
@@ -107,5 +108,28 @@ class Ordine{
 ostream& operator << (ostream& os, const Ordine& _ordine);
 void test_Ordine();
 
+// PERSONA
+class Persona{
+private:
+    string nome;
+    string cognome;
+public:
+    Persona(string _nome, string _cognome);
+    friend ostream& operator << (ostream& os, const Persona& persona);
+};
+
+ostream& operator << (ostream& os, const Persona& _persona);
+void test_persona();
 #endif
 
+// CLIENTE
+
+class Cliente: public Persona{
+private:
+    string numero_tel;
+public:
+    Cliente(string, string, string);
+   friend ostream& operator <<(ostream& os, const Cliente& cliente);
+};
+
+ostream& operator <<(ostream& os, const Cliente& cliente);
