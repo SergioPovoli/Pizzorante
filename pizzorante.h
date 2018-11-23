@@ -60,7 +60,7 @@ class Prodotto{
 	public:
 		Prodotto(Reparto _reparto, float _costo);
 		void set_disponibile(bool _disponibile);
-		void set_ingredienti(Ingrediente _ingredienti);
+		void set_ingredienti(const Ingrediente _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
 };
 
