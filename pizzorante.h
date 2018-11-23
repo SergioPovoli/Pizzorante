@@ -32,10 +32,11 @@ class Ingrediente {
 	public:
 		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato/*, Allergene _allergene*/);
 		void add_allergene (Allergene _allergene);
-		
+		friend ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 };
 
 void test_Ingrediente();
+ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 
 #endif
 
