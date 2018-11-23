@@ -28,8 +28,10 @@ class Ingrediente {
 		int id_ingrediente;
 		bool disponibile;
 		bool surgelato;
-		set<Allergene> NodeAllergeni;
+		set<Allergene> nodeAllergeni;
 	public:
+		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool surgelato, set<Allergene> _nodeAllergeni);
+		
 };
 
 
