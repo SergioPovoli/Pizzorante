@@ -7,10 +7,12 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
+    test_Ingrediente();
     
     test_data();
     
 
+    
     
     
 	return 0;

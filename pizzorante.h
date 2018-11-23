@@ -5,6 +5,7 @@
 #include <string>
 #include <set>
 #include <ctime>
+#include <map>
 using namespace std;
 
 typedef enum Allergene{
@@ -29,10 +30,20 @@ class Ingrediente {
 		int id_ingrediente;
 		bool disponibile;
 		bool surgelato;
-		set<Allergene> NodeAllergeni;
+		set<Allergene> nodeAllergeni;
 	public:
+		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato/*, Allergene _allergene*/);
+		void add_allergene (Allergene _allergene);
+		void set_disponibile(bool _disponibile);
+		bool get_disponibile();
+		set<Allergene> get_allergeni ();
+		bool operator < (const Ingrediente& _ingrediente)const;
+		friend ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 };
 
+//bool operator < ( Ingrediente& _ingrediente1, Ingrediente& _ingrediente2) ;
+void test_Ingrediente();
+ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 class Data {
 private:
     unsigned int anno,mese,giorno,ora,minuto,secondi;
@@ -45,5 +56,25 @@ public:
 
 ostream& operator << (ostream& os, Data& _data);
 void test_data();
+typedef enum Reparto{
+	PIZZERIA,
+	RISTORANTE,
+	BAR
+}Reparto;
+
+class Prodotto{
+	private:
+		Reparto reparto;
+		float costo;
+		bool disponibile;
+		set<Ingrediente> ingredienti;
+		set<Allergene> allergeni;
+	public:
+		Prodotto(Reparto _reparto, float _costo);
+		void set_disponibile(bool _disponibile);
+		void set_ingredienti(Ingrediente _ingredienti);
+	//	void set_allergeni(Ingrediente _ingrediente);
+};
+
 #endif
 
