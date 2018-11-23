@@ -78,7 +78,6 @@ class Prodotto{
 		set<Allergene> allergeni;
 	public:
 		Prodotto(string _nome, Reparto _reparto, float _costo);
-		void set_disponibile(bool _disponibile);
 		void set_ingredienti(const Ingrediente _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
 		bool get_disponibile()const;
@@ -87,9 +86,10 @@ class Prodotto{
 		friend ostream& operator << (ostream& os, const Prodotto& _prodotto);
 };
 
-// ORDINE
 ostream& operator << (ostream& os, const Prodotto& _prodotto);
 void test_Prodotto();
+
+// ORDINE
 
 class Ordine{
 	private:
@@ -101,7 +101,11 @@ class Ordine{
 		Ordine(int _id_ordine);
 		void add_prodotti(Prodotto _prodotto);
 		float get_sub_totale()const;
+		friend ostream& operator << (ostream& os, const Ordine& _ordine);
 };
+
+ostream& operator << (ostream& os, const Ordine& _ordine);
+void test_Ordine();
 
 #endif
 

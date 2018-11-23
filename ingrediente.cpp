@@ -58,8 +58,10 @@ ostream& operator << (ostream& os, const Ingrediente& ingrediente){
             case 10: os<< "Anidride Solforosa" <<endl; break;
             case 11: os<< "Lupini" <<endl; break;
             case 12: os<< "Molluschi" <<endl; break;
+            default: os<< "Errore" << endl;
         }
     }
+    os << endl;
 	return os;
 }
 
