@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
     
     cout<<"ciao"<<endl;
     
-    printf("ANAL GRANELLI\n");
+
     
     
     
