@@ -30,10 +30,12 @@ class Ingrediente {
 		bool surgelato;
 		set<Allergene> nodeAllergeni;
 	public:
-		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool surgelato, set<Allergene> _nodeAllergeni);
+		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato/*, Allergene _allergene*/);
+		void add_allergene (Allergene _allergene);
 		
 };
 
+void test_Ingrediente();
 
 #endif
 
