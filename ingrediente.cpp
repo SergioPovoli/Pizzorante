@@ -12,6 +12,18 @@ void Ingrediente::add_allergene (Allergene _allergene){
 	nodeAllergeni.insert(_allergene);
 }
 
+void Ingrediente::set_disponibile(bool _disponibile){
+	disponibile = _disponibile;
+}
+
+bool Ingrediente::get_disponibile(){
+	return disponibile;
+} 
+
+set<Allergene> Ingrediente::get_allergeni (){
+	return nodeAllergeni;
+}
+
 ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 	set<Allergene>::iterator iter;
 	os << ingrediente.nome << " " << ingrediente.id_ingrediente << " ";

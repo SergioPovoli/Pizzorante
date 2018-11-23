@@ -32,6 +32,9 @@ class Ingrediente {
 	public:
 		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato/*, Allergene _allergene*/);
 		void add_allergene (Allergene _allergene);
+		void set_disponibile(bool _disponibile);
+		bool get_disponibile();
+		set<Allergene> get_allergeni ();
 		friend ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 };
 
