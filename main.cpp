@@ -10,7 +10,8 @@ int main(int argc, char** argv) {
     
     test_Ingrediente();
     test_data();
-    
+    cout<<endl;
+    test_persona();
 
     
     
