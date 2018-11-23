@@ -24,7 +24,7 @@ Data::Data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigne
 }
 
 //STAMPA DATA --> OPERATORE <<
-ostream& operator << (ostream& os, Data& _data){
+ostream& operator << (ostream& os, const Data& _data){
     if(_data.giorno<10){
         os<<"0"<<_data.giorno<<"/";
     }else{

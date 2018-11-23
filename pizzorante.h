@@ -53,11 +53,11 @@ private:
 public:
     Data();
     Data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
-    friend ostream& operator << (ostream& os, Data& _data);
+    friend ostream& operator << (ostream& os,const Data& _data);
     bool operator <(const Data& _data)const;
 };
 
-ostream& operator << (ostream& os, Data& _data);
+ostream& operator << (ostream& os, const Data& _data);
 void test_data();
 
 //REPARTO
@@ -84,19 +84,22 @@ class Prodotto{
 		bool get_disponibile()const;
 		float get_costo()const;
 		bool operator < (const Prodotto& _prodotto)const;
+		friend ostream& operator << (ostream& os, const Prodotto& _prodotto);
 };
 
 // ORDINE
+ostream& operator << (ostream& os, const Prodotto& _prodotto);
+void test_Prodotto();
+
 class Ordine{
 	private:
 		int id_ordine;
 		float sub_totale;
 		set<Prodotto> prodotti;
-		
+		Data data;
 	public:
 		Ordine(int _id_ordine);
 		void add_prodotti(Prodotto _prodotto);
-		void set_sub_totale(Prodotto _prodotto);
 		float get_sub_totale()const;
 };
 
