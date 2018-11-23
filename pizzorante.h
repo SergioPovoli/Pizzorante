@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <ctime>
 #include <map>
 using namespace std;
 
@@ -43,7 +44,18 @@ class Ingrediente {
 //bool operator < ( Ingrediente& _ingrediente1, Ingrediente& _ingrediente2) ;
 void test_Ingrediente();
 ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
+class Data {
+private:
+    unsigned int anno,mese,giorno,ora,minuto,secondi;
+public:
+    Data();
+    Data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
+    friend ostream& operator << (ostream& os, Data& _data);
+    bool operator <(const Data& _data)const;
+};
 
+ostream& operator << (ostream& os, Data& _data);
+void test_data();
 typedef enum Reparto{
 	PIZZERIA,
 	RISTORANTE,
