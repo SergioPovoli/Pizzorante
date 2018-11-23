@@ -16,7 +16,7 @@ void Ingrediente::set_disponibile(bool _disponibile){
 	disponibile = _disponibile;
 }
 
-bool Ingrediente::get_disponibile(){
+bool Ingrediente::get_disponibile()const{
 	return disponibile;
 } 
 

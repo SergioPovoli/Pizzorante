@@ -29,11 +29,11 @@ void Prodotto::set_ingredienti(const Ingrediente _ingredienti){
 	}
 }
 
-bool Prodotto::get_disponibile(){
+bool Prodotto::get_disponibile()const{
 	return disponibile;
 }
 
-float Prodotto::get_costo(){
+float Prodotto::get_costo()const{
 	return costo;
 }
 

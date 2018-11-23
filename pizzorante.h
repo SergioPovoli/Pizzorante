@@ -35,7 +35,7 @@ class Ingrediente {
 		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato/*, Allergene _allergene*/);
 		void add_allergene (Allergene _allergene);
 		void set_disponibile(bool _disponibile);
-		bool get_disponibile();
+		bool get_disponibile()const;
 		set<Allergene> get_allergeni ();
 		bool operator < (const Ingrediente& _ingrediente)const;
 		friend ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
@@ -75,8 +75,8 @@ class Prodotto{
 		void set_disponibile(bool _disponibile);
 		void set_ingredienti(const Ingrediente _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
-		bool get_disponibile();
-		float get_costo();
+		bool get_disponibile()const;
+		float get_costo()const;
 		bool operator < (const Prodotto& _prodotto)const;
 };
 
@@ -90,7 +90,7 @@ class Ordine{
 		Ordine(int _id_ordine);
 		void add_prodotti(Prodotto _prodotto);
 		void set_sub_totale(Prodotto _prodotto);
-		float get_sub_totale();
+		float get_sub_totale()const;
 };
 
 #endif
