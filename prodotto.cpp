@@ -17,7 +17,7 @@ void Prodotto::set_ingredienti(const Ingrediente _ingredienti){
 	iiter = ingredienti.begin();
 	disponibile = false;
 	while (iiter != ingredienti.end() || disponibile == true){
-		if (iiter->get_disponibile() == false){
+/*		if (iiter->get_disponibile() == false){
 			disponibile = false;
 		}
 		iiter++;
@@ -25,6 +25,14 @@ void Prodotto::set_ingredienti(const Ingrediente _ingredienti){
 /*	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
 		for (aiter = (iiter->get_allergeni()).begin(); aiter = (iiter->get_allergeni()).end(); aiter++){
 			
-		}
-	}*/
+		}*/
+	}
+}
+
+bool Prodotto::get_disponibile(){
+	return disponibile;
+}
+
+float Prodotto::get_costo(){
+	return costo;
 }

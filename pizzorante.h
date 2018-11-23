@@ -74,6 +74,21 @@ class Prodotto{
 		void set_disponibile(bool _disponibile);
 		void set_ingredienti(const Ingrediente _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
+		bool get_disponibile();
+		float get_costo();
+};
+
+class Ordine{
+	private:
+		int id_ordine;
+		float sub_totale;
+		set<Prodotto> prodotti;
+		
+	public:
+		Ordine(int _id_ordine);
+		void add_prodotti(Prodotto _prodotto);
+		void set_sub_totale(Prodotto _prodotto);
+		float get_sub_totale();
 };
 
 #endif

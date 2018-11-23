@@ -43,7 +43,7 @@ ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 	} else {
 		os << "Non surgelato ";
 	}
-	for(iter == ingrediente.nodeAllergeni.begin(); iter != ingrediente.nodeAllergeni.end(); iter++){
+	for(iter = ingrediente.nodeAllergeni.begin(); iter != ingrediente.nodeAllergeni.end(); iter++){
 		os << *iter;
 	}
 	return os;
@@ -52,5 +52,9 @@ ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 void test_Ingrediente(){
 	Ingrediente ingrediente("Acqua", 0000, true, false);
 	ingrediente.add_allergene(ANIDRIDE_SOLFOROSA);
-	cout << ingrediente;
+	cout << ingrediente << endl;
+	ingrediente.set_disponibile(false);
+	bool disp;
+	disp = ingrediente.get_disponibile();
+	cout << ingrediente << endl;
 }
