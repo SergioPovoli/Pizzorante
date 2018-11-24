@@ -115,10 +115,11 @@ private:
     string cognome;
 public:
     Persona(string _nome, string _cognome);
-    friend ostream& operator << (ostream& os, const Persona& persona);
+    //friend ostream& operator << (ostream& os, const Persona& persona);
+    ostream& operator << (ostream& os)const;
 };
 
-ostream& operator << (ostream& os, const Persona& _persona);
+//ostream& operator << (ostream& os, const Persona& _persona);
 void test_persona();
 
 
