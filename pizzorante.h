@@ -153,5 +153,18 @@ public:
 };
 
 void test_responsabile();
+
 ostream& operator <<(ostream& os, Responsabile &_responsabile);
+
+//CAMERIERE
+
+class Cameriere: public Persona{
+private:
+    int num_matricola;
+public:
+    Cameriere(string _nome, string _cognome, int _num_matricola);
+    friend ostream& operator <<(ostream& os, Cameriere& _cameriere);
+};
+ostream& operator <<(ostream& os, Cameriere& _cameriere);
+void test_cameriere();
 #endif
