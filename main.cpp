@@ -9,12 +9,16 @@ using namespace std;
 int main(int argc, char** argv) {
     
 	test_Ordine();
+    cout<<endl;
     test_Ingrediente();
+    cout<<endl;
     test_data();
     cout<<endl;
     test_persona();
     cout<<endl;
     test_cliente();
+    cout<<endl;
+    test_responsabile();
     //test_Prodotto();
     
     

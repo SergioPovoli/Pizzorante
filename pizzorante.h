@@ -2,7 +2,8 @@
 #define __PIZZORANTE_H__
 
 #include <iostream>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include <set>
 #include <ctime>
 #include <map>
@@ -115,11 +116,14 @@ private:
     string cognome;
 public:
     Persona(string _nome, string _cognome);
-    //friend ostream& operator << (ostream& os, const Persona& persona);
-    ostream& operator << (ostream& os)const;
+    string get_nome()const;
+    string get_cognome()const    ;
+    
+    friend ostream& operator << (ostream& os, const Persona& _persona);
+
 };
 
-//ostream& operator << (ostream& os, const Persona& _persona);
+ostream& operator << (ostream& os, const Persona& _persona);
 void test_persona();
 
 
@@ -137,4 +141,17 @@ ostream& operator <<(ostream& os, const Cliente& _cliente);
 
 void test_cliente();
 
+//RESPONSABILE
+
+class Responsabile: public Persona{
+private:
+    int num_matricola;
+public:
+    Responsabile(string _nome, string _cognome, int _num_matricola);
+    friend ostream& operator <<(ostream& os, Responsabile &_responsabile);
+    
+};
+
+void test_responsabile();
+ostream& operator <<(ostream& os, Responsabile &_responsabile);
 #endif
