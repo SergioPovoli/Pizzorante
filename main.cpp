@@ -21,6 +21,8 @@ int main(int argc, char** argv) {
     test_responsabile();
     cout<<endl;
     test_cameriere();
+    cout<<endl;
+    test_prenotazione();
     //test_Prodotto();
     
     

@@ -6,7 +6,7 @@ Responsabile::Responsabile(string _nome, string _cognome, int _num_matricola):Pe
 }
 
 ostream& operator <<(ostream& os, Responsabile &_responsabile){
-    os<<_responsabile.get_nome()<<" "<<_responsabile.get_cognome()<<endl;
+    os<<_responsabile.get_nome()<<" "<<_responsabile.get_cognome()<<" MR: ";
     os<<_responsabile.num_matricola<<endl;
     return os;
 }

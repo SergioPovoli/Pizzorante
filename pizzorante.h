@@ -167,4 +167,35 @@ public:
 };
 ostream& operator <<(ostream& os, Cameriere& _cameriere);
 void test_cameriere();
+
+// PRENOTAZIONE
+
+class Tavolo;
+
+class Prenotazione{
+private:
+    int num_posti;
+    Cliente cliente;
+    Responsabile* responsabile;
+    Data prenotatoil;
+    Data prenotatoper;
+    Tavolo* tavolo;
+public:
+    Prenotazione(string _nomecli, string _cognomecli, string _numerocli, int _num_posti, Responsabile* _resposnabile, unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondo, Tavolo* _tavolo);
+    friend ostream& operator << (ostream& os, Prenotazione& _prenotazione);
+};
+
+ostream& operator << (ostream& os, Prenotazione& _prenotazione);
+void test_prenotazione();
+
+// TAVOLO
+class Tavolo{
+private:
+    int prova;
+public:
+    Tavolo(int _prova);
+    friend ostream& operator <<(ostream& os, Tavolo& _tavolo);
+};
+
+ostream& operator <<(ostream& os, Tavolo& _tavolo);
 #endif
