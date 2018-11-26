@@ -12,7 +12,19 @@ void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
 	ingredienti.insert(_ingredienti);
 	iiter = ingredienti.begin();
 	disponibile = false;
-	while (iiter != ingredienti.end() || disponibile == true){
+/*
+	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
+		
+		while (disponibile == true){
+			if ((*iiter)->get_disponibile() == false){
+				disponibile = false;
+			} else {
+				disponibile = true;
+			}
+		}
+	}
+/*	while (iiter != ingredienti.end() || disponibile == true){
+		cout << "Test";
 		if ((*iiter)->get_disponibile() == false){
 			disponibile = false;
 		} else {
@@ -20,7 +32,7 @@ void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
 		}
 		iiter++;
 	}
-	for (aiter = _ingredienti->get_allergeni().begin(); aiter != _ingredienti->get_allergeni().end(); aiter++){
+/*	for (aiter = _ingredienti->get_allergeni().begin(); aiter != _ingredienti->get_allergeni().end(); aiter++){
 		allergeni.insert(*aiter);
 	}
 /*	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
@@ -59,10 +71,11 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 	}
 	os << endl;
 	for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); iiter++){
-		os << (*iiter);
+		os << * (*iiter);
 	}
 	os << "Allergeni: " ;
 	for (aiter = _prodotto.allergeni.begin(); aiter != _prodotto.allergeni.end(); aiter++){
+		os << "test allergeni";
 		switch(*aiter){
             case 0: os<< "Glutine" <<endl; break;
             case 1: os<< "Crostacei" <<endl; break;
@@ -86,8 +99,11 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 
 void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
-	Ingrediente i("Acqua", 0000, true, false);
+	Ingrediente i("h2o", 0000, false, false);
+	i.add_allergene(GLUTINE);
+	i.add_allergene(MOLLUSCHI);
 	Ingrediente i2("Bicchiere", 1, true, false);
+	i2.add_allergene(CROSTACEI);
 	p.set_ingredienti(&i);
 	p.set_ingredienti(&i2);
 	cout << p;
