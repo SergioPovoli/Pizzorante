@@ -6,21 +6,21 @@ Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 	nome = _nome;
 }
 
-void Prodotto::set_ingredienti( Ingrediente _ingredienti){
-	set<Ingrediente>::iterator iiter;
+void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
+	set<Ingrediente *>::iterator iiter;
 	set<Allergene>::iterator aiter;
 	ingredienti.insert(_ingredienti);
 	iiter = ingredienti.begin();
 	disponibile = false;
 	while (iiter != ingredienti.end() || disponibile == true){
-		if (iiter->get_disponibile() == false){
+		if ((*iiter)->get_disponibile() == false){
 			disponibile = false;
 		} else {
 			disponibile = true;
 		}
 		iiter++;
 	}
-	for (aiter = _ingredienti.get_allergeni().begin(); aiter != _ingredienti.get_allergeni().end(); aiter++){
+	for (aiter = _ingredienti->get_allergeni().begin(); aiter != _ingredienti->get_allergeni().end(); aiter++){
 		allergeni.insert(*aiter);
 	}
 /*	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
@@ -43,7 +43,7 @@ bool Prodotto::operator < (const Prodotto& _prodotto)const{
 }
 
 ostream& operator << (ostream& os, const Prodotto& _prodotto){
-	set<Ingrediente>::iterator iiter;
+	set<Ingrediente *>::iterator iiter;
 	set<Allergene>::iterator aiter;
 	os << _prodotto.nome << " " << _prodotto.costo << " Euro "<< " reparto: ";
 	switch(_prodotto.reparto){
@@ -88,8 +88,8 @@ void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
 	Ingrediente i("Acqua", 0000, true, false);
 	Ingrediente i2("Bicchiere", 1, true, false);
-	p.set_ingredienti(i);
-	p.set_ingredienti(i2);
+	p.set_ingredienti(&i);
+	p.set_ingredienti(&i2);
 	cout << p;
 /*	bool disp;
 	disp = p.get_disponibile();
