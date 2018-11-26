@@ -33,9 +33,9 @@ class Ingrediente {
 		int id_ingrediente;
 		bool disponibile;
 		bool surgelato;
-		set<Allergene> nodeAllergeni;
+		set<Allergene> allergeni;
 	public:
-		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato/*, Allergene _allergene*/);
+		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato);
 		void add_allergene (Allergene _allergene);
 		void set_disponibile(bool _disponibile);
 		bool get_disponibile()const;
@@ -79,7 +79,7 @@ class Prodotto{
 		set<Allergene> allergeni;
 	public:
 		Prodotto(string _nome, Reparto _reparto, float _costo);
-		void set_ingredienti(const Ingrediente _ingredienti);
+		void set_ingredienti( Ingrediente _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
 		bool get_disponibile()const;
 		float get_costo()const;

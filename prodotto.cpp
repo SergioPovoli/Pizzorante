@@ -6,7 +6,7 @@ Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 	nome = _nome;
 }
 
-void Prodotto::set_ingredienti(const Ingrediente _ingredienti){
+void Prodotto::set_ingredienti( Ingrediente _ingredienti){
 	set<Ingrediente>::iterator iiter;
 	set<Allergene>::iterator aiter;
 	ingredienti.insert(_ingredienti);
@@ -15,14 +15,19 @@ void Prodotto::set_ingredienti(const Ingrediente _ingredienti){
 	while (iiter != ingredienti.end() || disponibile == true){
 		if (iiter->get_disponibile() == false){
 			disponibile = false;
+		} else {
+			disponibile = true;
 		}
 		iiter++;
 	}
-	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
-	//	for (aiter = (iiter->get_allergeni()).begin(); aiter = (iiter->get_allergeni()).end(); aiter++){
-			
-	//	}
+	for (aiter = _ingredienti.get_allergeni().begin(); aiter != _ingredienti.get_allergeni().end(); aiter++){
+		allergeni.insert(*aiter);
 	}
+/*	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
+		for (aiter = (iiter->get_allergeni()).begin(); aiter = (iiter->get_allergeni()).end(); aiter++){
+			
+		}
+	}*/
 }
 
 bool Prodotto::get_disponibile()const{
@@ -86,4 +91,10 @@ void test_Prodotto(){
 	p.set_ingredienti(i);
 	p.set_ingredienti(i2);
 	cout << p;
+/*	bool disp;
+	disp = p.get_disponibile();
+	cout << "Disponibile " << disp << endl;
+	float cost;
+	cost = p.get_costo();
+	cout << "Costo " << cost << endl;*/
 }
