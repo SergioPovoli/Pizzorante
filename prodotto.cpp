@@ -86,7 +86,9 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 
 void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
-	Ingrediente i("Acqua", 0000, true, false);
+	Ingrediente i("h2o", 0000, false, false);
+	i.add_allergene(GLUTINE);
+	i.add_allergene(MOLLUSCHI);
 	Ingrediente i2("Bicchiere", 1, true, false);
 	//p.set_ingredienti(&i);
 	//p.set_ingredienti(&i2);

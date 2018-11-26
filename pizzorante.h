@@ -97,11 +97,11 @@ class Ordine{
 	private:
 		int id_ordine;
 		float sub_totale;
-		set<Prodotto> prodotti;
+		set<Prodotto*> prodotti;
 		Data data;
 	public:
 		Ordine(int _id_ordine);
-		void add_prodotti(Prodotto _prodotto);
+		void add_prodotti(Prodotto* _prodotto);
 		float get_sub_totale()const;
 		friend ostream& operator << (ostream& os, const Ordine& _ordine);
 };
