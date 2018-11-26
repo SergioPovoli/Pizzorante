@@ -223,4 +223,22 @@ public:
 ostream& operator <<(ostream& os, Tavolo& _tavolo);
 
 void test_tavolo();
+
+// CONSEGNA
+
+class Consegna{
+private:
+    string via;
+    int numero;
+    string citta;
+    int cap;
+    Cliente cliente;
+public:
+    Consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel);
+    
+    friend ostream& operator <<(ostream& os, Consegna& _consegna);
+};
+
+void test_consegna();
+ostream& operator <<(ostream& os, Consegna& _consegna);
 #endif
