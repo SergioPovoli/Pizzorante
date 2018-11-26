@@ -8,8 +8,9 @@ using namespace std;
 
 int main(int argc, char** argv) {
     
-    test_data();
-	/*test_Ordine();
+    test_tavolo();
+    /*test_data();
+	test_Ordine();
     cout<<endl;
     test_Ingrediente();
     cout<<endl;

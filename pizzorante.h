@@ -221,4 +221,6 @@ public:
 };
 
 ostream& operator <<(ostream& os, Tavolo& _tavolo);
+
+void test_tavolo();
 #endif
