@@ -9,25 +9,24 @@ Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
 	set<Ingrediente *>::iterator iiter;
 	set<Allergene>::iterator aiter;
+    
 	ingredienti.insert(_ingredienti);
-	iiter = ingredienti.begin();
-	disponibile = false;
-	while (iiter != ingredienti.end() || disponibile == true){
-		if ((*iiter)->get_disponibile() == false){
-			disponibile = false;
-		} else {
-			disponibile = true;
-		}
-		iiter++;
-	}
-	for (aiter = _ingredienti->get_allergeni().begin(); aiter != _ingredienti->get_allergeni().end(); aiter++){
-		allergeni.insert(*aiter);
-	}
-/*	for (iiter = ingredienti.begin(); iiter != ingredienti.end(); iiter++){
-		for (aiter = (iiter->get_allergeni()).begin(); aiter = (iiter->get_allergeni()).end(); aiter++){
-			
-		}
-	}*/
+    
+    for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
+        if((*iiter)->get_disponibile()==false){
+                disponibile =false;
+                iiter=ingredienti.end();
+            }else{
+                disponibile=true;
+            }
+    }
+    
+    for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
+        for(aiter=_ingredienti->get_allergeni().begin();aiter!=_ingredienti->get_allergeni().end();++aiter){
+            allergeni.insert(*aiter);
+        }
+    }
+    
 }
 
 bool Prodotto::get_disponibile()const{
@@ -58,11 +57,12 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 		os << "Non disponibile ";
 	}
 	os << endl;
-	for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); iiter++){
-		os << (*iiter);
+    
+	for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); ++iiter){
+		os << *(*iiter);
 	}
 	os << "Allergeni: " ;
-	for (aiter = _prodotto.allergeni.begin(); aiter != _prodotto.allergeni.end(); aiter++){
+	for (aiter = _prodotto.allergeni.begin(); aiter != _prodotto.allergeni.end(); ++aiter){
 		switch(*aiter){
             case 0: os<< "Glutine" <<endl; break;
             case 1: os<< "Crostacei" <<endl; break;
@@ -88,8 +88,8 @@ void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
 	Ingrediente i("Acqua", 0000, true, false);
 	Ingrediente i2("Bicchiere", 1, true, false);
-	p.set_ingredienti(&i);
-	p.set_ingredienti(&i2);
+	//p.set_ingredienti(&i);
+	//p.set_ingredienti(&i2);
 	cout << p;
 /*	bool disp;
 	disp = p.get_disponibile();
