@@ -13,17 +13,20 @@ void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
 	ingredienti.insert(_ingredienti);
     
     for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
-        if((*iiter)->get_disponibile()==false){
-                disponibile =false;
-                iiter=ingredienti.end();
-            }else{
-                disponibile=true;
-            }
+        for(aiter=_ingredienti->get_allergeni_begin();aiter!=_ingredienti->get_allergeni_end();++aiter){
+            allergeni.insert((*aiter));
+        }
     }
     
     for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
-        for(aiter=_ingredienti->get_allergeni().begin();aiter!=_ingredienti->get_allergeni().end();++aiter){
-            allergeni.insert(*aiter);
+        if((*iiter)->get_disponibile()==false){
+            disponibile =false;
+        }else{
+            if(disponibile==true){
+                disponibile=true;
+            }else{
+                disponibile=false;
+            }
         }
     }
     
@@ -86,17 +89,11 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 
 void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
-	Ingrediente i("h2o", 0000, false, false);
+	Ingrediente i("h2o", 0000, true, false);
 	i.add_allergene(GLUTINE);
 	i.add_allergene(MOLLUSCHI);
 	Ingrediente i2("Bicchiere", 1, true, false);
-	//p.set_ingredienti(&i);
-	//p.set_ingredienti(&i2);
+	p.set_ingredienti(&i);
+	p.set_ingredienti(&i2);
 	cout << p;
-/*	bool disp;
-	disp = p.get_disponibile();
-	cout << "Disponibile " << disp << endl;
-	float cost;
-	cost = p.get_costo();
-	cout << "Costo " << cost << endl;*/
 }

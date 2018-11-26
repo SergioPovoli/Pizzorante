@@ -20,13 +20,12 @@ bool Ingrediente::get_disponibile()const{
 	return disponibile;
 } 
 
-set<Allergene> Ingrediente::get_allergeni (){
-	set <Allergene>::iterator iter;
-	set <Allergene> temp;
-	for (iter = allergeni.begin(); iter != allergeni.end(); iter++){
-		temp.insert(*iter);
-	}
-	return temp;
+set<Allergene>::iterator Ingrediente::get_allergeni_end ()const{
+    return allergeni.end();
+}
+
+set<Allergene>::iterator Ingrediente::get_allergeni_begin ()const{
+    return allergeni.begin();
 }
 
 bool Ingrediente::operator < (const Ingrediente& _ingrediente)const{
@@ -48,7 +47,7 @@ ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 	} else {
 		os << "Non surgelato "<<endl;
 	}
-	for(iter = ingrediente.allergeni.begin(); iter != ingrediente.allergeni.end(); iter++){
+    for (iter = ingrediente.get_allergeni_begin(); iter != ingrediente.get_allergeni_end(); iter++ ){
         switch(*iter){
             case 0: os<< "Glutine" <<endl; break;
             case 1: os<< "Crostacei" <<endl; break;
@@ -84,7 +83,7 @@ void test_Ingrediente(){
 	// SBAGLIATO
 	set<Allergene>::iterator iter;
 	cout << "Allergeni: " << endl;
-	for (iter = ingrediente.get_allergeni().begin(); iter != ingrediente.get_allergeni().end(); iter++ ){
+	for (iter = ingrediente.get_allergeni_begin(); iter != ingrediente.get_allergeni_end(); iter++ ){
 		switch(*iter){
             case 0: cout<< "Glutine" <<endl; break;
             case 1: cout<< "Crostacei" <<endl; break;

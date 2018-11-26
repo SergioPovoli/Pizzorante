@@ -39,7 +39,8 @@ class Ingrediente {
 		void add_allergene (Allergene _allergene);
 		void set_disponibile(bool _disponibile);
 		bool get_disponibile()const;
-		set<Allergene> get_allergeni ();
+        set<Allergene>::iterator get_allergeni_end ()const;
+        set<Allergene>::iterator get_allergeni_begin ()const;
 		bool operator < (const Ingrediente& _ingrediente)const;
 		friend ostream& operator << (ostream& os, const Ingrediente& ingrediente) ;
 };
@@ -76,7 +77,7 @@ class Prodotto{
 		float costo;
 		bool disponibile;
 		set<Ingrediente *> ingredienti;
-		set<Allergene> allergeni;
+        set<Allergene> allergeni;
 	public:
 		Prodotto(string _nome, Reparto _reparto, float _costo);
 		void set_ingredienti( Ingrediente* _ingredienti);

@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     /*test_data();
 	test_Ordine();
     cout<<endl;
-  /*  test_Ingrediente();
+     test_Ingrediente();
     cout<<endl;
     test_data();
     cout<<endl;
