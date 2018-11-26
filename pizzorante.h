@@ -183,6 +183,7 @@ private:
 public:
     Prenotazione(string _nomecli, string _cognomecli, string _numerocli, int _num_posti, Responsabile* _resposnabile, unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondo, Tavolo* _tavolo);
     friend ostream& operator << (ostream& os, Prenotazione& _prenotazione);
+    bool operator < (const Prenotazione& _prenotazione)const;
 };
 
 ostream& operator << (ostream& os, Prenotazione& _prenotazione);

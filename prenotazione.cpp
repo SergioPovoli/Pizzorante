@@ -20,6 +20,10 @@ ostream& operator << (ostream& os, Prenotazione& _prenotazione){
     return os;
 }
 
+bool Prenotazione::operator < (const Prenotazione& _prenotazione)const{
+    return prenotatoper<_prenotazione.prenotatoper;
+}
+
 void test_prenotazione(){
     Tavolo t(69);
     Responsabile r("Marco","Garbari",69);
