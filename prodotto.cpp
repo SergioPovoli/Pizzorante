@@ -18,18 +18,13 @@ void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
         }
     }
     
-    for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
-        if((*iiter)->get_disponibile()==false){
-            disponibile =false;
-        }else{
-            if(disponibile==true){
-                disponibile=true;
-            }else{
-                disponibile=false;
-            }
+    disponibile=true;
+    for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter)
+        if(!(*iiter)->get_disponibile())
+        {
+            disponibile=false;
+            break;
         }
-    }
-    
 }
 
 bool Prodotto::get_disponibile()const{
@@ -47,7 +42,8 @@ bool Prodotto::operator < (const Prodotto& _prodotto)const{
 ostream& operator << (ostream& os, const Prodotto& _prodotto){
 	set<Ingrediente *>::iterator iiter;
 	set<Allergene>::iterator aiter;
-	os << _prodotto.nome << " " << _prodotto.costo << " Euro "<< " reparto: ";
+    os<< "- "<<_prodotto.nome<<" -"<<endl;
+	os << _prodotto.costo << " Euro "<< endl << "Reparto: ";
 	switch(_prodotto.reparto){
 		case PIZZERIA: os << "Pizzeria" << endl; break;
 		case RISTORANTE: os << "Ristorante" << endl; break;
@@ -61,10 +57,11 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 	}
 	os << endl;
     
+    os<<"- Composto da: -" << endl<<endl;
 	for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); ++iiter){
 		os << *(*iiter);
 	}
-	os << "Allergeni: " ;
+    os << endl<< "Allergeni Totali: " << endl;
 	for (aiter = _prodotto.allergeni.begin(); aiter != _prodotto.allergeni.end(); ++aiter){
 		switch(*aiter){
             case 0: os<< "Glutine" <<endl; break;
@@ -89,7 +86,7 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 
 void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
-	Ingrediente i("h2o", 0000, true, false);
+	Ingrediente i("h2o", 0000, false, false);
 	i.add_allergene(GLUTINE);
 	i.add_allergene(MOLLUSCHI);
 	Ingrediente i2("Bicchiere", 1, true, false);
