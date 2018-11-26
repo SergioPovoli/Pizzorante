@@ -28,12 +28,12 @@ ostream& operator << (ostream& os, const Ordine& _ordine){
 }
 
 void test_Ordine(){
-	Ordine o(2301);
+/*	Ordine o(2301);
 	Prodotto p("Acqua", BAR, 3);
 	Ingrediente i("H20", 0000, true, false);
 	Ingrediente i2("Bicchiere", 1, true, false);
-	p.set_ingredienti(i);
-	p.set_ingredienti(i2);
+//	p.set_ingredienti(i);
+//	p.set_ingredienti(i2);
 	Prodotto p1("Pane", RISTORANTE, 3);
 	Ingrediente i3("Farina", 1023, true, false);
 	Ingrediente i4("Lievito", 1, true, true);
@@ -43,5 +43,5 @@ void test_Ordine(){
 	o.add_prodotti(p1);
 	cout << o;
 	float tot;
-	tot = o.get_sub_totale();
+	tot = o.get_sub_totale();*/
 }
