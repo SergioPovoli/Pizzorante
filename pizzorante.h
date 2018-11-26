@@ -132,6 +132,7 @@ void test_persona();
 class Cliente: public Persona{
 private:
     string numero_tel;
+    
 public:
     Cliente(string _nome, string _cognome, string _numero_tel);
    friend ostream& operator <<(ostream& os, const Cliente& _cliente);
@@ -241,4 +242,14 @@ public:
 
 void test_consegna();
 ostream& operator <<(ostream& os, Consegna& _consegna);
+
+//TAKE AWAY
+class TakeAway: public Ordine {
+	private:
+		Data data;
+		Cliente cliente;
+		Responsabile* responsabile;
+	public:
+		
+};
 #endif
