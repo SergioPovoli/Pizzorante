@@ -14,7 +14,7 @@ ostream& operator << (ostream& os, Prenotazione& _prenotazione){
     os<<"Resposnabile della prenotazione:"<<endl<<(*_prenotazione.responsabile);
     os<<"La prenotazione è stata effettuata il"<<endl<<_prenotazione.prenotatoil;
     os<<"La prenotazione è per il"<<endl<<_prenotazione.prenotatoper;
-    os<<"Il tavolo prenotato è il nuemro "<<(*_prenotazione.tavolo)<<"e terrà "<<_prenotazione.num_posti<<" posti"<<endl;
+    os<<"Il tavolo prenotato è il nuemro "<<(_prenotazione.tavolo->get_numero())<<"e terrà "<<_prenotazione.num_posti<<" posti"<<endl;
     os<<"----------------------"<<endl;
     
     return os;
@@ -25,7 +25,7 @@ bool Prenotazione::operator < (const Prenotazione& _prenotazione)const{
 }
 
 void test_prenotazione(){
-    Tavolo t(69);
+    Tavolo t(15,2,SALA1,0,1);
     Responsabile r("Marco","Garbari",69);
     Prenotazione p1("Sergio","Povoli","3490754511",2,&r,2018,30,11,8,30,0,&t);
     cout<< p1;

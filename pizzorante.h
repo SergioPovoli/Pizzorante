@@ -170,7 +170,7 @@ void test_cameriere();
 
 // PRENOTAZIONE
 
-class Tavolo;
+class Tavolo; //Avviso della presenza di una classe Tavolo che andrò ad implementare successivamente
 
 class Prenotazione{
 private:
@@ -189,12 +189,34 @@ public:
 ostream& operator << (ostream& os, Prenotazione& _prenotazione);
 void test_prenotazione();
 
+//POSIZIONE
+typedef enum Posizione{
+    SALA1,
+    SALA2,
+    VERANDA
+}Posizione;
+
 // TAVOLO
 class Tavolo{
 private:
-    int prova;
+    int numero;
+    int num_posti;
+    Posizione posizione;
+    bool occupato;
+    bool prenotato;
+    set<Prenotazione*> prenotazioni;
 public:
-    Tavolo(int _prova);
+    Tavolo(int _numero, int _num_posti, Posizione _posizione, bool _occupato=false, bool _prenotato=false);
+    bool get_prenotato()const;
+    bool get_occupato()const;
+    int get_numero()const;
+    void set_occupato(bool _occupato);
+    void set_prenotato(bool _prenotato);
+    void inserisci_prenotazione(Prenotazione* _prenotazione);
+    void cancella_prenotazioni();
+    void stampa_listaprenotazioni();
+    void rimuoviprenotazione(Prenotazione* _prenotazione);
+    
     friend ostream& operator <<(ostream& os, Tavolo& _tavolo);
 };
 
