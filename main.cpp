@@ -8,6 +8,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
     
+    test_tavolo();
     /*test_data();
 	test_Ordine();
     cout<<endl;
