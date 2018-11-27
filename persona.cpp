@@ -17,7 +17,12 @@ ostream& operator << (ostream& os, const Persona &_persona){
     return os;
 }
  
-
+void Persona::set_nome(string _nome){
+    nome=_nome;
+}
+void Persona::set_cognome(string _cognome){
+    cognome=_cognome;
+}
 
 void test_persona(){
     Persona p("Irene","Buffa");

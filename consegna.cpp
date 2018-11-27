@@ -15,6 +15,27 @@ ostream& operator <<(ostream& os, Consegna& _consegna){
     return os;
 }
 
+void stampa_consegna(Consegna& con){
+    cout<<con;
+}
+
+void Consegna::modifica_via(string _via){
+    via=_via;
+}
+void Consegna::modifica_numero(int _numero){
+    numero=_numero;
+}
+void Consegna::modifica_citta(string _citta){
+    citta=_citta;
+}
+void Consegna::modifica_cap(int _cap){
+    cap=_cap;
+}
+void Consegna::modifica_cliente(string _nome, string _cognome, string _numero){
+    Cliente c(_nome,_cognome,_numero);
+    cliente=c;
+}
+
 void test_consegna(){
     Consegna c("Via Picarel", "Vezzano", 11, 38096, "Sergio", "Povoli", "3490754511");
     cout << c;

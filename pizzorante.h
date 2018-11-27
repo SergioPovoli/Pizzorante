@@ -118,7 +118,9 @@ private:
 public:
     Persona(string _nome, string _cognome);
     string get_nome()const;
-    string get_cognome()const    ;
+    string get_cognome()const;
+    void set_nome(string _nome);
+    void set_cognome(string _cognome);
     
     friend ostream& operator << (ostream& os, const Persona& _persona);
 
@@ -152,11 +154,14 @@ private:
 public:
     Responsabile(string _nome, string _cognome, int _num_matricola);
     friend ostream& operator <<(ostream& os, Responsabile &_responsabile);
+    void modifica_num_matricola(int _num_matricola);
+    void modifica_nome(string _nome);
+    void modifica_cognome(string _cognome);
     
 };
 
 void test_responsabile();
-
+void stampa_responsabile(Responsabile& resp);
 ostream& operator <<(ostream& os, Responsabile &_responsabile);
 
 //CAMERIERE
@@ -167,9 +172,13 @@ private:
 public:
     Cameriere(string _nome, string _cognome, int _num_matricola);
     friend ostream& operator <<(ostream& os, Cameriere& _cameriere);
+    void modifica_num_matricola(int _num_matricola);
+    void modifica_nome(string _nome);
+    void modifica_cognome(string _cognome);
 };
 ostream& operator <<(ostream& os, Cameriere& _cameriere);
 void test_cameriere();
+void stampa_cameriere(Cameriere &c);
 
 // PRENOTAZIONE
 
@@ -247,12 +256,17 @@ private:
     Cliente cliente;
 public:
     Consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel);
-    
+    void modifica_via(string _via);
+    void modifica_numero(int _numero);
+    void modifica_citta(string _citta);
+    void modifica_cap(int _cap);
+    void modifica_cliente(string _nome, string _cognome, string _numero);
     friend ostream& operator <<(ostream& os, Consegna& _consegna);
 };
 
 void test_consegna();
 ostream& operator <<(ostream& os, Consegna& _consegna);
+void stampa_consegna(Consegna& con);
 
 //TAKE AWAY
 class TakeAway: public Ordine {
