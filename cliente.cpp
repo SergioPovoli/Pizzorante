@@ -4,6 +4,10 @@ Cliente::Cliente(string _nome, string _cognome, string _numero_tel):Persona(_nom
     numero_tel=_numero_tel;
 }
 
+Cliente::~Cliente(){
+    cout<<"Distrutto";
+}
+
 ostream& operator <<(ostream& os, const Cliente& _cliente){
     os<<_cliente.get_nome()<<" "<<_cliente.get_cognome()<<endl;
     os<<_cliente.numero_tel<<endl;

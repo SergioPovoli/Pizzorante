@@ -136,6 +136,7 @@ private:
     
 public:
     Cliente(string _nome, string _cognome, string _numero_tel);
+    ~Cliente();
    friend ostream& operator <<(ostream& os, const Cliente& _cliente);
 };
 
@@ -184,12 +185,21 @@ private:
     Tavolo* tavolo;
 public:
     Prenotazione(string _nomecli, string _cognomecli, string _numerocli, int _num_posti, Responsabile* _resposnabile, unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondo, Tavolo* _tavolo);
+    void modifica_num_posti(int _num_posti);
+    void modifica_cliente(string _nome,string _cognome, string _nume_tel);
+    void modifica_responsabile(Responsabile* r1);
+    void modifica_prenotatoper(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondo);
+    void modifica_tavolo(Tavolo *t);
+    
     friend ostream& operator << (ostream& os, Prenotazione& _prenotazione);
     bool operator < (const Prenotazione& _prenotazione)const;
+    
 };
 
 ostream& operator << (ostream& os, Prenotazione& _prenotazione);
 void test_prenotazione();
+void stampa_prenotazione(Prenotazione &p);
+
 
 //POSIZIONE
 typedef enum Posizione{

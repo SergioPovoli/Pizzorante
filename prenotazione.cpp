@@ -24,9 +24,36 @@ bool Prenotazione::operator < (const Prenotazione& _prenotazione)const{
     return prenotatoper<_prenotazione.prenotatoper;
 }
 
+void stampa_prenotazione(Prenotazione &p){
+    cout<<p;
+}
+
+void Prenotazione:: modifica_num_posti(int _num_posti){
+    num_posti=_num_posti;
+}
+
+void Prenotazione::modifica_cliente(string _nome,string _cognome, string _nume_tel){
+    Cliente c(_nome,_cognome,_nume_tel);
+    cliente=c;
+}
+
+void Prenotazione::modifica_responsabile(Responsabile* r1){
+    responsabile=r1;
+}
+
+void Prenotazione::modifica_prenotatoper(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondo){
+    prenotatoper=Data(_anno, _mese, _giorno, _ora, _minuto, _secondo);
+}
+
+void Prenotazione::modifica_tavolo(Tavolo *t){
+    tavolo=t;
+}
+
 void test_prenotazione(){
     Tavolo t(15,2,SALA1,0,1);
     Responsabile r("Marco","Garbari",69);
     Prenotazione p1("Sergio","Povoli","3490754511",2,&r,2018,30,11,8,30,0,&t);
     cout<< p1;
+    p1.modifica_cliente("Mario", "Povoli", "3356020307");
+    cout<<p1;
 }
