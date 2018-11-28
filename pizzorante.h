@@ -77,13 +77,15 @@ class Prodotto{
 		float costo;
 		bool disponibile;
 		set<Ingrediente *> ingredienti;
-        set<Allergene> allergeni;
+        //set<Allergene> allergeni;
 	public:
 		Prodotto(string _nome, Reparto _reparto, float _costo);
+		Prodotto (Prodotto& _p);
 		void set_ingredienti( Ingrediente* _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
 		bool get_disponibile()const;
 		float get_costo()const;
+		void set_costo(float _c);
 		bool operator < (const Prodotto& _prodotto)const;
 		friend ostream& operator << (ostream& os, const Prodotto& _prodotto);
 };
@@ -91,6 +93,26 @@ class Prodotto{
 
 ostream& operator << (ostream& os, const Prodotto& _prodotto);
 void test_Prodotto();
+
+// RIGA ORDINE
+
+class RigaOrdine{
+	private:
+		int quantita;
+		string nota;
+		Prodotto* prodotto;
+		float sub_totale;
+	public:
+		RigaOrdine(int _q, string _n, Prodotto* _p);
+		float get_sub_totale()const ;
+		string get_nota()const;
+		void set_quantita(int _q);
+		void set_nota(string _n);
+		friend ostream& operator << (ostream& os, const RigaOrdine& _ro);
+};
+
+ostream& operator << (ostream& os, const RigaOrdine& _ro);
+void test_riga_ordine();
 
 // ORDINE
 

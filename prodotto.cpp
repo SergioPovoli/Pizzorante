@@ -6,18 +6,29 @@ Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 	nome = _nome;
 }
 
+Prodotto::Prodotto (Prodotto& _p){
+	set<Ingrediente *>::iterator iter;
+	reparto = _p.reparto;
+	costo = _p.costo;
+	nome = _p.nome;
+	disponibile = _p.disponibile;
+	for (iter = ingredienti.begin(); iter != ingredienti.end(); iter++){
+		_p.ingredienti.insert(*iter);
+	}
+}
+
 void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
 	set<Ingrediente *>::iterator iiter;
 	set<Allergene>::iterator aiter;
     
 	ingredienti.insert(_ingredienti);
     
-    for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
+   /* for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter){
         for(aiter=_ingredienti->get_allergeni_begin();aiter!=_ingredienti->get_allergeni_end();++aiter){
             allergeni.insert((*aiter));
         }
     }
-    
+    */
     disponibile=true;
     for(iiter=ingredienti.begin();iiter!=ingredienti.end();++iiter)
         if(!(*iiter)->get_disponibile())
@@ -33,6 +44,10 @@ bool Prodotto::get_disponibile()const{
 
 float Prodotto::get_costo()const{
 	return costo;
+}
+
+void Prodotto::set_costo(float _c){
+	costo = _c;
 }
 
 bool Prodotto::operator < (const Prodotto& _prodotto)const{
@@ -61,7 +76,7 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 	for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); ++iiter){
 		os << *(*iiter);
 	}
-    os << endl<< "Allergeni Totali: " << endl;
+   /* os << endl<< "Allergeni Totali: " << endl;
 	for (aiter = _prodotto.allergeni.begin(); aiter != _prodotto.allergeni.end(); ++aiter){
 		switch(*aiter){
             case 0: os<< "Glutine" <<endl; break;
@@ -79,7 +94,7 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
             case 12: os<< "Molluschi" <<endl; break;
             default: os<< "Errore" << endl;
         }
-	}
+	}*/
 	os << endl;
 	return os;
 }
