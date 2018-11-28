@@ -96,6 +96,7 @@ void Tavolo::paga(){
 void Tavolo::rimuoviordine(Ordine* _ordine){
     set<Ordine*>::iterator iter;
     iter=ordini.find(_ordine);
+    subtotale_tavolo=subtotale_tavolo - (*iter)->get_sub_totale();
     ordini.erase(iter);
 }
 
