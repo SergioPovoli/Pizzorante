@@ -80,7 +80,7 @@ class Prodotto{
         //set<Allergene> allergeni;
 	public:
 		Prodotto(string _nome, Reparto _reparto, float _costo);
-		Prodotto (Prodotto& _p);
+	//	Prodotto (Prodotto& _p);
 		void set_ingredienti( Ingrediente* _ingredienti);
 	//	void set_allergeni(Ingrediente _ingrediente);
 		bool get_disponibile()const;
@@ -109,6 +109,7 @@ class RigaOrdine{
 		void set_quantita(int _q);
 		void set_nota(string _n);
 		friend ostream& operator << (ostream& os, const RigaOrdine& _ro);
+		bool operator < (const RigaOrdine& _ro) const;
 };
 
 ostream& operator << (ostream& os, const RigaOrdine& _ro);
@@ -120,16 +121,20 @@ class Tavolo;
 class Ordine{
 	private:
         static int id_ordine;
-		float sub_totale;
-		set<Prodotto*> prodotti;
-		Data data;
-        Tavolo* tavolo;
+	//	float sub_totale;
+		RigaOrdine riga;
+		set<RigaOrdine> prodotti; 
+		Data data; 
 	public:
-		Ordine(Tavolo* _tavolo);
+		Ordine(int _q, string _n, Prodotto* _p);
         ~Ordine();
-		void add_prodotti(Prodotto* _prodotto);
-        void modificatavolo(Tavolo* _tavolo);
-		float get_sub_totale()const;
+		void add_prodotti(RigaOrdine _prodotto);
+	//	float get_sub_totale()const;
+	//	void set_sub_totale(float _tot);
+		set<RigaOrdine>::iterator get_begin_prodotti();
+		set<RigaOrdine>::iterator get_end_prodotti();
+		Data get_data() const;
+		int get_id_ordine() const;
 		friend ostream& operator << (ostream& os, const Ordine& _ordine);
         bool operator <( Ordine& _ordine);
 };

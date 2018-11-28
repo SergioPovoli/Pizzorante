@@ -83,7 +83,7 @@ ostream& operator <<(ostream& os, Tavolo& _tavolo){
 void Tavolo::inserisci_ordine(Ordine* _ordine){
     ordini.insert(_ordine);
     occupato=true;
-    subtotale_tavolo=subtotale_tavolo+_ordine->get_sub_totale();
+  //  subtotale_tavolo=subtotale_tavolo+_ordine->get_sub_totale();
 }
 
 void Tavolo::paga(){
@@ -96,7 +96,7 @@ void Tavolo::paga(){
 void Tavolo::rimuoviordine(Ordine* _ordine){
     set<Ordine*>::iterator iter;
     iter=ordini.find(_ordine);
-    subtotale_tavolo=subtotale_tavolo - (*iter)->get_sub_totale();
+   // subtotale_tavolo=subtotale_tavolo - (*iter)->get_sub_totale();
     ordini.erase(iter);
 }
 
