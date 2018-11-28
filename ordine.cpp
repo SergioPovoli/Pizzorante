@@ -2,7 +2,8 @@
 
 int Ordine::id_ordine=0;
 
-Ordine::Ordine(){
+Ordine::Ordine(Tavolo* _tavolo){
+    tavolo=_tavolo;
     id_ordine++;
 }
 
@@ -19,6 +20,9 @@ void Ordine::add_prodotti(Prodotto* _prodotto){
 	}
 }
 
+void Ordine::modificatavolo(Tavolo* _tavolo){
+    tavolo=_tavolo;
+}
 float Ordine::get_sub_totale()const{
 	return sub_totale;
 }
@@ -38,7 +42,8 @@ bool Ordine::operator <(Ordine& _ordine){
 }
 
 void test_Ordine(){
-	Ordine o;
+    Tavolo t1(3, 2, SALA1);
+    Ordine o(&t1);
 	Prodotto p("Acqua", BAR, 3);
 	Ingrediente i("H20", 0000, true, false);
 	Ingrediente i2("Bicchiere", 1, true, false);

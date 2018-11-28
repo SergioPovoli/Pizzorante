@@ -115,6 +115,7 @@ ostream& operator << (ostream& os, const RigaOrdine& _ro);
 void test_riga_ordine();
 
 // ORDINE
+class Tavolo;
 
 class Ordine{
 	private:
@@ -122,10 +123,12 @@ class Ordine{
 		float sub_totale;
 		set<Prodotto*> prodotti;
 		Data data;
+        Tavolo* tavolo;
 	public:
-		Ordine();
+		Ordine(Tavolo* _tavolo);
         ~Ordine();
 		void add_prodotti(Prodotto* _prodotto);
+        void modificatavolo(Tavolo* _tavolo);
 		float get_sub_totale()const;
 		friend ostream& operator << (ostream& os, const Ordine& _ordine);
         bool operator <( Ordine& _ordine);
