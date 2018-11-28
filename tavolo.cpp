@@ -6,6 +6,7 @@ Tavolo::Tavolo(int _numero, int _num_posti, Posizione _posizione, bool _occupato
     posizione=_posizione;
     occupato=_occupato;
     prenotato=_prenotato;
+    subtotale_tavolo=0.0;
 }
 
 bool Tavolo::get_prenotato()const{
@@ -22,9 +23,11 @@ void Tavolo::set_prenotato(bool _prenotato){
 }
 void Tavolo::inserisci_prenotazione(Prenotazione* _prenotazione){
     prenotazioni.insert(_prenotazione);
+    prenotato=true;
 }
 void Tavolo::cancella_prenotazioni(){
     prenotazioni.clear();
+    prenotato=false;
 }
 
 void Tavolo::stampa_listaprenotazioni(){
@@ -38,6 +41,10 @@ void Tavolo::rimuoviprenotazione(Prenotazione* _prenotazione){
     set<Prenotazione*>::iterator iter;
     iter=prenotazioni.find(_prenotazione);
     prenotazioni.erase(iter);
+    iter=prenotazioni.begin();
+    if(iter==prenotazioni.end()){
+        prenotato=false;
+    }
 }
 
 int Tavolo::get_numero()const{
@@ -65,7 +72,38 @@ ostream& operator <<(ostream& os, Tavolo& _tavolo){
         os<<**iter1<<" | ";
     }
     
+    set<Ordine*>::iterator iter2;
+    for(iter2=_tavolo.ordini.begin();iter2!=_tavolo.ordini.end();++iter2){
+        os<<**iter2<<" | ";
+    }
+    
     return os;
+}
+
+void Tavolo::inserisci_ordine(Ordine* _ordine){
+    ordini.insert(_ordine);
+    occupato=true;
+    subtotale_tavolo=subtotale_tavolo+_ordine->get_sub_totale();
+}
+
+void Tavolo::paga(){
+    cout<<endl<<"---Totale: ----"<<subtotale_tavolo;
+    ordini.clear();
+    subtotale_tavolo=0;
+    occupato=false;
+}
+
+void Tavolo::rimuoviordine(Ordine* _ordine){
+    set<Ordine*>::iterator iter;
+    iter=ordini.find(_ordine);
+    ordini.erase(iter);
+}
+
+void Tavolo::stampaordini(){
+    set<Ordine*>::iterator iter;
+    for(iter=ordini.begin();iter!=ordini.end();++iter){
+        cout<<"Lista ordini:"<<endl<<(*(*iter))<<"--------"<<endl;
+    }
 }
 
 

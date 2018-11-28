@@ -1,8 +1,13 @@
 #include "pizzorante.h"
 
-Ordine::Ordine(int _id_ordine){
-	id_ordine = _id_ordine;
-	
+int Ordine::id_ordine=0;
+
+Ordine::Ordine(){
+    id_ordine++;
+}
+
+Ordine::~Ordine(){
+    id_ordine--;
 }
 
 void Ordine::add_prodotti(Prodotto* _prodotto){
@@ -28,8 +33,12 @@ ostream& operator << (ostream& os, const Ordine& _ordine){
 	return os;
 }
 
+bool Ordine::operator <(Ordine& _ordine){
+    return id_ordine<_ordine.id_ordine;
+}
+
 void test_Ordine(){
-	Ordine o(2301);
+	Ordine o;
 	Prodotto p("Acqua", BAR, 3);
 	Ingrediente i("H20", 0000, true, false);
 	Ingrediente i2("Bicchiere", 1, true, false);

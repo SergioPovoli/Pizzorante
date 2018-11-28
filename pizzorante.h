@@ -118,15 +118,17 @@ void test_riga_ordine();
 
 class Ordine{
 	private:
-		int id_ordine;
+        static int id_ordine;
 		float sub_totale;
 		set<Prodotto*> prodotti;
 		Data data;
 	public:
-		Ordine(int _id_ordine);
+		Ordine();
+        ~Ordine();
 		void add_prodotti(Prodotto* _prodotto);
 		float get_sub_totale()const;
 		friend ostream& operator << (ostream& os, const Ordine& _ordine);
+        bool operator <( Ordine& _ordine);
 };
 
 ostream& operator << (ostream& os, const Ordine& _ordine);
@@ -248,6 +250,8 @@ private:
     bool occupato;
     bool prenotato;
     set<Prenotazione*> prenotazioni;
+    set<Ordine*> ordini;
+    float subtotale_tavolo;
 public:
     Tavolo(int _numero, int _num_posti, Posizione _posizione, bool _occupato=false, bool _prenotato=false);
     bool get_prenotato()const;
@@ -255,6 +259,10 @@ public:
     int get_numero()const;
     void set_occupato(bool _occupato);
     void set_prenotato(bool _prenotato);
+    void inserisci_ordine(Ordine* _ordine);
+    void paga();
+    void rimuoviordine(Ordine* _ordine);
+    void stampaordini();
     void inserisci_prenotazione(Prenotazione* _prenotazione);
     void cancella_prenotazioni();
     void stampa_listaprenotazioni();
