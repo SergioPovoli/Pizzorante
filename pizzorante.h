@@ -310,9 +310,19 @@ void stampa_consegna(Consegna& con);
 class TakeAway: public Ordine {
 	private:
 		Data data;
-		Cliente cliente;
 		Responsabile* responsabile;
+		float sub_totale;
 	public:
-		
+		TakeAway(int _q, string _n, Prodotto* _p, unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi, Responsabile *resp);
+		Data get_data() const;
+		Responsabile* get_responsabile() const;
+		void set_responsabile(Responsabile* _resp);
+		void set_data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
+		float get_sub_totale() const;
+		friend ostream& operator << (ostream& os,  TakeAway& ta );
 };
+
+ostream& operator << (ostream& os, const TakeAway& ta );
+void test_takeAway();
+
 #endif
