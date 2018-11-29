@@ -72,38 +72,36 @@ ostream& operator <<(ostream& os, Tavolo& _tavolo){
         os<<**iter1<<" | ";
     }
     
-    set<Ordine*>::iterator iter2;
-    for(iter2=_tavolo.ordini.begin();iter2!=_tavolo.ordini.end();++iter2){
+    set<Comanda*>::iterator iter2;
+    for(iter2=_tavolo.comande.begin();iter2!=_tavolo.comande.end();++iter2){
         os<<**iter2<<" | ";
     }
     
     return os;
 }
 
-void Tavolo::inserisci_ordine(Ordine* _ordine){
-    ordini.insert(_ordine);
+void Tavolo::inserisci_comanda(Comanda* _comanda){
+    comande.insert(_comanda);
     occupato=true;
-    subtotale_tavolo=subtotale_tavolo+_ordine->get_sub_totale();
 }
 
 void Tavolo::paga(){
     cout<<endl<<"---Totale: ----"<<subtotale_tavolo;
-    ordini.clear();
+    comande.clear();
     subtotale_tavolo=0;
     occupato=false;
 }
 
-void Tavolo::rimuoviordine(Ordine* _ordine){
-    set<Ordine*>::iterator iter;
-    iter=ordini.find(_ordine);
-    subtotale_tavolo=subtotale_tavolo - (*iter)->get_sub_totale();
-    ordini.erase(iter);
+void Tavolo::rimuouvicomanda(Comanda* _comanda){
+    set<Comanda*>::iterator iter;
+    iter=comande.find(_comanda);
+    comande.erase(iter);
 }
 
-void Tavolo::stampaordini(){
-    set<Ordine*>::iterator iter;
-    for(iter=ordini.begin();iter!=ordini.end();++iter){
-        cout<<"Lista ordini:"<<endl<<(*(*iter))<<"--------"<<endl;
+void Tavolo::stampacomande(){
+    set<Comanda*>::iterator iter;
+    for(iter=comande.begin();iter!=comande.end();++iter){
+        cout<<"Lista Comande:"<<endl<<(*(*iter))<<"--------"<<endl;
     }
 }
 

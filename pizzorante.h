@@ -244,6 +244,8 @@ typedef enum Posizione{
     VERANDA
 }Posizione;
 
+class Comanda;
+
 // TAVOLO
 class Tavolo{
 private:
@@ -253,7 +255,7 @@ private:
     bool occupato;
     bool prenotato;
     set<Prenotazione*> prenotazioni;
-    set<Ordine*> ordini;
+    set<Comanda*> comande;
     float subtotale_tavolo;
 public:
     Tavolo(int _numero, int _num_posti, Posizione _posizione, bool _occupato=false, bool _prenotato=false);
@@ -262,10 +264,10 @@ public:
     int get_numero()const;
     void set_occupato(bool _occupato);
     void set_prenotato(bool _prenotato);
-    void inserisci_ordine(Ordine* _ordine);
+    void inserisci_comanda(Comanda* _comanda);
     void paga();
-    void rimuoviordine(Ordine* _ordine);
-    void stampaordini();
+    void rimuouvicomanda(Comanda* _comanda);
+    void stampacomande();
     void inserisci_prenotazione(Prenotazione* _prenotazione);
     void cancella_prenotazioni();
     void stampa_listaprenotazioni();
@@ -300,6 +302,22 @@ public:
 void test_consegna();
 ostream& operator <<(ostream& os, Consegna& _consegna);
 void stampa_consegna(Consegna& con);
+
+
+//COMANDA
+class Comanda: public Ordine{
+private:
+    Cameriere* cameriere;
+    Tavolo* tavolo;
+public:
+    Comanda(int _quantita, string nota, Prodotto* _prodotto, Cameriere* _camereire, Tavolo* _tavolo);
+    void modifica_tavolo(Tavolo* t);
+    void modifica_cameriere(Cameriere* c);
+    bool operator <(Comanda& _ordine);
+    friend ostream& operator <<(ostream& os, Comanda& _comanda);
+};
+ostream& operator <<(ostream& os, Comanda& _comanda);
+
 
 //TAKE AWAY
 class TakeAway: public Ordine {
