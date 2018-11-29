@@ -350,4 +350,26 @@ class TakeAway: public Ordine {
 ostream& operator << (ostream& os, const TakeAway& ta );
 void test_takeAway();
 
+//DELIVERY
+class Delivery:public Ordine {
+	private:
+		Data data_consegna;
+		Responsabile* responsabile;
+		float sub_totale;
+		Consegna consegna;
+	public:
+		Delivery(int _q, string _n, Prodotto* _p, unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi, Responsabile *resp, string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel);
+		Data get_data_consegna() const;
+		Responsabile* get_responsabile() const;
+		void set_responsabile(Responsabile* _resp);
+		void set_data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
+		float aggiorna_sub_totale() ;
+		void add_prodotti_delivery(RigaOrdine _prodotto);
+		float get_sub_totale() const;
+		friend ostream& operator << (ostream& os, const Delivery& d);
+};
+
+ostream& operator << (ostream& os, const Delivery& d);
+void test_delivery();
+
 #endif
