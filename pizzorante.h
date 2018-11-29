@@ -37,6 +37,8 @@ class Ingrediente {
 	public:
 		Ingrediente(string _nome, int _id_ingrediente, bool _disponibile, bool _surgelato);
 		void add_allergene (Allergene _allergene);
+		void remove_allergene (Allergene _allergene);
+		void set_surgelato(bool _surgelato);
 		void set_disponibile(bool _disponibile);
 		bool get_disponibile()const;
         set<Allergene>::iterator get_allergeni_end ()const;
@@ -82,6 +84,7 @@ class Prodotto{
 		Prodotto(string _nome, Reparto _reparto, float _costo);
 	//	Prodotto (Prodotto& _p);
 		void set_ingredienti( Ingrediente* _ingredienti);
+		void remove_ingrediente (Ingrediente* _ingrediente);
 	//	void set_allergeni(Ingrediente _ingrediente);
 		bool get_disponibile()const;
 		float get_costo()const;

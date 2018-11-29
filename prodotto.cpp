@@ -38,6 +38,14 @@ void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
         }
 }
 
+void Prodotto::remove_ingrediente (Ingrediente* _ingrediente){
+	set<Ingrediente*>::iterator iter;
+	iter = ingredienti.find(_ingrediente);
+	if (iter != ingredienti.end()){
+		ingredienti.erase(iter);
+	}
+}
+
 bool Prodotto::get_disponibile()const{
 	return disponibile;
 }

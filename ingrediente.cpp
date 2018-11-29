@@ -12,6 +12,18 @@ void Ingrediente::add_allergene (Allergene _allergene){
 	allergeni.insert(_allergene);
 }
 
+void Ingrediente::remove_allergene (Allergene _allergene){
+	set<Allergene>::iterator iter;
+	iter = allergeni.find(_allergene);
+	if (iter != allergeni.end()){
+		allergeni.erase(iter);
+	}
+}
+
+void Ingrediente::set_surgelato(bool _surgelato){
+	surgelato = _surgelato;
+}
+
 void Ingrediente::set_disponibile(bool _disponibile){
 	disponibile = _disponibile;
 }
