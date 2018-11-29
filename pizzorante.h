@@ -363,9 +363,11 @@ class Delivery:public Ordine {
 		Responsabile* get_responsabile() const;
 		void set_responsabile(Responsabile* _resp);
 		void set_data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
-		float aggiorna_sub_totale() ;
+		float aggiorna_sub_totale();
 		void add_prodotti_delivery(RigaOrdine _prodotto);
 		float get_sub_totale() const;
+		Consegna get_consegna() const;
+		void set_consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel);
 		friend ostream& operator << (ostream& os, const Delivery& d);
 };
 

@@ -60,6 +60,14 @@ ostream& operator << (ostream& os, const Delivery& d){
     return os;
 }
 
+Consegna Delivery::get_consegna() const{
+	return consegna;
+}
+
+void set_consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel){
+	consegna = Consegna(_via, _citta, _numero, _cap, _nome, _cognome, _num_tel);
+}
+
 void test_delivery(){
 	
 }
