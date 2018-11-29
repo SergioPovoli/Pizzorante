@@ -53,7 +53,7 @@ float Tavolo::aggiorana_subtotale(){
     float subtotale_tavolo=0;
     set<Comanda*>::const_iterator citer;
     for(citer=comande.begin();citer!=comande.end();++citer){
-        subtotale_tavolo=subtotale_tavolo+*citer->get_sub_totale();
+        subtotale_tavolo=subtotale_tavolo+(*citer)->get_sub_totale();
     }
     return subtotale_tavolo;
 }
