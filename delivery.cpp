@@ -57,6 +57,7 @@ ostream& operator << (ostream& os, const Delivery& d){
 	os <<"Operatore: " << *(d.responsabile) << endl;
 	os << "Totale: Euro " << d.sub_totale << endl;
 	os <<"Consegna prevista: " << d.get_data_consegna() << endl;
+	os << "Presso " << d.consegna << endl;
     return os;
 }
 
@@ -69,5 +70,19 @@ void set_consegna(string _via, string _citta, int _numero, int _cap,  string _no
 }
 
 void test_delivery(){
-	
+	Prodotto p("Acqua", BAR, 3);
+	Ingrediente i("H20", 0000, true, false);
+	Ingrediente i2("Bicchiere", 1, true, false);
+	p.set_ingredienti(&i);
+	p.set_ingredienti(&i2);
+	Prodotto p1("Pane", RISTORANTE, 3);
+	Ingrediente i3("Farina", 1023, true, false);
+	Ingrediente i4("Lievito", 1, true, true);
+	p1.set_ingredienti(&i3);
+	p1.set_ingredienti(&i4);
+	RigaOrdine ord(9, "Ben cotto", &p1);
+	Responsabile r("Giacomo","Planke",185790);
+	Delivery deli(7, "Frizzante", &p, 2018, 16, 32, 14,63, 12, &r, "Fermi", "Trento", 191, 38123, "Buffa", "Irene", 3334448969);
+	deli.add_prodotti_delivery(ord); 
+	cout << deli;
 }
