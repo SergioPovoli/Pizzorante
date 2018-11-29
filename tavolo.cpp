@@ -97,6 +97,7 @@ void Tavolo::inserisci_comanda(Comanda* _comanda){
 }
 
 void Tavolo::paga(){
+    subtotale_tavolo=aggiorana_subtotale();
     cout<<endl<<"---Totale: ----"<<subtotale_tavolo;
     comande.clear();
     subtotale_tavolo=0;
@@ -109,6 +110,7 @@ void Tavolo::rimuouvicomanda(Comanda* _comanda){
     if(iter!=comande.end()){
     comande.erase(iter);
 }
+    subtotale_tavolo=aggiorana_subtotale();
 }
 
 void Tavolo::stampacomande(){
