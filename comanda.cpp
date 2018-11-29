@@ -47,6 +47,6 @@ ostream& operator <<(ostream& os, Comanda& _comanda){
     for(iter=_comanda.get_begin_prodotti();iter!=_comanda.get_end_prodotti();iter++){
         cout<<*iter;
     }
-    os << "Totale: Euro " << sub_totale << endl;
+    os << "Totale: Euro " << _comanda.sub_totale << endl;
     return os;
 }

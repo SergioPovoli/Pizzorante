@@ -47,7 +47,7 @@ float Delivery::get_sub_totale() const{
 	return sub_totale;
 }
 
-ostream& operator << (ostream& os, const Delivery& d){
+ostream& operator << (ostream& os, Delivery& d){
 	os <<"Ordine " << d.get_id_ordine() << endl;
 	set<RigaOrdine>::iterator iter;
 	for (iter = d.get_begin_prodotti(); iter != d.get_end_prodotti(); iter++){
@@ -65,7 +65,7 @@ Consegna Delivery::get_consegna() const{
 	return consegna;
 }
 
-void set_consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel){
+void Delivery::set_consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel){
 	consegna = Consegna(_via, _citta, _numero, _cap, _nome, _cognome, _num_tel);
 }
 
@@ -82,7 +82,7 @@ void test_delivery(){
 	p1.set_ingredienti(&i4);
 	RigaOrdine ord(9, "Ben cotto", &p1);
 	Responsabile r("Giacomo","Planke",185790);
-	Delivery deli(7, "Frizzante", &p, 2018, 16, 32, 14,63, 12, &r, "Fermi", "Trento", 191, 38123, "Buffa", "Irene", 3334448969);
+	Delivery deli(7, "Frizzante", &p, 2018, 16, 32, 14,63, 12, &r, "Fermi", "Trento", 191, 38123, "Buffa", "Irene", "3334448969");
 	deli.add_prodotti_delivery(ord); 
 	cout << deli;
 }

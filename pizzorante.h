@@ -368,7 +368,7 @@ class Delivery:public Ordine {
 		float get_sub_totale() const;
 		Consegna get_consegna() const;
 		void set_consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel);
-		friend ostream& operator << (ostream& os, const Delivery& d);
+		friend ostream& operator << (ostream& os, Delivery& d);
 };
 
 ostream& operator << (ostream& os, const Delivery& d);
