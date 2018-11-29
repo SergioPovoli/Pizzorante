@@ -43,6 +43,11 @@ void Delivery::add_prodotti_delivery(RigaOrdine _prodotto){
 	sub_totale = aggiorna_sub_totale();
 }
 
+void Delivery::remove_prodotti_delivery(RigaOrdine _prodotto){
+	remove_prodotti(_prodotto);
+	sub_totale = aggiorna_sub_totale();
+}
+
 float Delivery::get_sub_totale() const{
 	return sub_totale;
 }

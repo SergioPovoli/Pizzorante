@@ -33,7 +33,11 @@ float Comanda::aggiorna_sub_totale() {
 void Comanda::add_prodotti_comanda(RigaOrdine _prodotto){
 	add_prodotti(_prodotto);
 	sub_totale = aggiorna_sub_totale();
+}
 
+void Comanda::remove_prodotti_comanda(RigaOrdine _prodotto){
+	remove_prodotti(_prodotto);
+	sub_totale = aggiorna_sub_totale();
 }
 
 float Comanda::get_sub_totale() const{

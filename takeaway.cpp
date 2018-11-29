@@ -42,6 +42,11 @@ void TakeAway::add_prodotti_take(RigaOrdine _prodotto){
 
 }
 
+void TakeAway::remove_prodotti_take(RigaOrdine _prodotto){
+	remove_prodotti(_prodotto);
+	sub_totale = aggiorna_sub_totale();
+}
+
 float TakeAway::get_sub_totale() const{
 	return sub_totale;
 }

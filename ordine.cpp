@@ -20,6 +20,13 @@ void Ordine::add_prodotti(RigaOrdine _prodotto){
 	}*/
 }
 
+void Ordine::remove_prodotti(RigaOrdine _prodotto){
+	set<RigaOrdine>::iterator iter;
+	iter = prodotti.find(_prodotto);
+	if (iter != prodotti.end()){
+		prodotti.erase(iter);
+	}
+}
 
 /*float Ordine::get_sub_totale()const{
 	return sub_totale;
