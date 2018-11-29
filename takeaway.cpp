@@ -2,7 +2,7 @@
 
 TakeAway::TakeAway(int _q, string _n, Prodotto* _p, unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, 
 	unsigned int _minuto, unsigned int _secondi, Responsabile* resp): 
-		data(_anno, _mese, _giorno, _ora, _minuto, _secondi),
+		data_consegna(_anno, _mese, _giorno, _ora, _minuto, _secondi),
 		responsabile (resp), Ordine(_q, _n, _p){
 	set<RigaOrdine>::iterator iter;
 	sub_totale = 0;
@@ -11,8 +11,8 @@ TakeAway::TakeAway(int _q, string _n, Prodotto* _p, unsigned int _anno, unsigned
 	}
 }
 
-Data TakeAway::get_data() const{
-	return data;
+Data TakeAway::get_data_consegna() const{
+	return data_consegna;
 }
 
 Responsabile* TakeAway::get_responsabile() const{
@@ -24,12 +24,22 @@ void TakeAway::set_responsabile(Responsabile* _resp){
 }
 		
 void TakeAway::set_data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi){
-/*	data.anno=_anno;
-    data.mese=_mese;
-    data.giorno=_giorno;
-    data.ora=_ora;
-    data.minuto=_minuto;
-    data.secondi=_secondi;*/
+	data_consegna = Data(_anno, _mese, _giorno, _ora, _minuto, _secondi);
+}
+
+float TakeAway::aggiorna_sub_totale() {
+	set<RigaOrdine>::iterator iter;
+	sub_totale = 0;
+	for(iter = get_begin_prodotti(); iter != get_end_prodotti(); iter++){
+		sub_totale = sub_totale + (*iter).get_sub_totale();
+	}
+	return sub_totale;
+}
+
+void TakeAway::add_prodotti_take(RigaOrdine _prodotto){
+	add_prodotti(_prodotto);
+	sub_totale = aggiorna_sub_totale();
+
 }
 
 float TakeAway::get_sub_totale() const{
@@ -43,9 +53,9 @@ ostream& operator << (ostream& os, TakeAway& ta ){
 		os << *(iter) << endl;
 	}
 	os << "Del" << ta.get_data() << endl;
-	os <<"Operatore: " << &(ta.responsabile) << endl;
+	os <<"Operatore: " << *(ta.responsabile) << endl;
 	os << "Totale: Euro " << ta.sub_totale << endl;
-	os <<"Consegna prevista: " << ta.get_data() << endl;
+	os <<"Consegna prevista: " << ta.get_data_consegna() << endl;
     return os;
 }
 
@@ -63,4 +73,6 @@ void test_takeAway(){
 	RigaOrdine ord(9, "Ben cotto", &p1);
 	Responsabile r("Giacomo","Planke",185790);
 	TakeAway take(4, "Naturale", &p, 2018, 12, 1, 15, 34, 16, &r);
+	take.add_prodotti_take(ord);
+	cout << take;
 }

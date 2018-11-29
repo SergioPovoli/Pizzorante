@@ -5,7 +5,11 @@ Comanda::Comanda(int _quantita, string nota, Prodotto* _prodotto, Cameriere* _ca
     cameriere= _camereire;
     tavolo=_tavolo;
     tavolo->inserisci_comanda(this);
-    
+    set<RigaOrdine>::iterator iter;
+	sub_totale = 0;
+	for(iter = get_begin_prodotti(); iter != get_end_prodotti(); iter++){
+		sub_totale = sub_totale + (*iter).get_sub_totale();
+	}
 }
 
 void Comanda::modifica_tavolo(Tavolo* t){
@@ -15,6 +19,25 @@ void Comanda::modifica_tavolo(Tavolo* t){
 }
 void Comanda::modifica_cameriere(Cameriere* c){
     cameriere=c;
+}
+
+float Comanda::aggiorna_sub_totale() {
+	set<RigaOrdine>::iterator iter;
+	sub_totale = 0;
+	for(iter = get_begin_prodotti(); iter != get_end_prodotti(); iter++){
+		sub_totale = sub_totale + (*iter).get_sub_totale();
+	}
+	return sub_totale;
+}
+
+void Comanda::add_prodotti_comanda(RigaOrdine _prodotto){
+	add_prodotti(_prodotto);
+	sub_totale = aggiorna_sub_totale();
+
+}
+
+float Comanda::get_sub_totale() const{
+	return sub_totale;
 }
 
 ostream& operator <<(ostream& os, Comanda& _comanda){
