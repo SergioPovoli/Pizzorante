@@ -46,6 +46,7 @@ ostream& operator << (ostream& os, TakeAway& ta ){
 	os <<"Operatore: " << &(ta.responsabile) << endl;
 	os << "Totale: Euro " << ta.sub_totale << endl;
 	os <<"Consegna prevista: " << ta.get_data() << endl;
+    return os;
 }
 
 void test_takeAway(){
