@@ -277,6 +277,7 @@ public:
     void cancella_prenotazioni();
     void stampa_listaprenotazioni();
     void rimuoviprenotazione(Prenotazione* _prenotazione);
+    float aggiorana_subtotale();
     
     friend ostream& operator <<(ostream& os, Tavolo& _tavolo);
 };

@@ -40,11 +40,22 @@ void Tavolo::stampa_listaprenotazioni(){
 void Tavolo::rimuoviprenotazione(Prenotazione* _prenotazione){
     set<Prenotazione*>::iterator iter;
     iter=prenotazioni.find(_prenotazione);
+    if(iter!=prenotazioni.end()){
     prenotazioni.erase(iter);
+    }
     iter=prenotazioni.begin();
     if(iter==prenotazioni.end()){
         prenotato=false;
     }
+}
+
+float Tavolo::aggiorana_subtotale(){
+    float subtotale_tavolo=0;
+    set<Comanda*>::const_iterator citer;
+    for(citer=comande.begin();citer!=comande.end();++citer){
+        subtotale_tavolo=subtotale_tavolo+*citer->get_sub_totale();
+    }
+    return subtotale_tavolo;
 }
 
 int Tavolo::get_numero()const{
@@ -95,7 +106,9 @@ void Tavolo::paga(){
 void Tavolo::rimuouvicomanda(Comanda* _comanda){
     set<Comanda*>::iterator iter;
     iter=comande.find(_comanda);
+    if(iter!=comande.end()){
     comande.erase(iter);
+}
 }
 
 void Tavolo::stampacomande(){
