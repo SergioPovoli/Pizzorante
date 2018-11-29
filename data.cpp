@@ -100,3 +100,5 @@ bool Data::operator <(const Data& _data)const{
         }
     }
 }
+
+
