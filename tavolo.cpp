@@ -40,7 +40,9 @@ void Tavolo::stampa_listaprenotazioni(){
 void Tavolo::rimuoviprenotazione(Prenotazione* _prenotazione){
     set<Prenotazione*>::iterator iter;
     iter=prenotazioni.find(_prenotazione);
+    if(iter!=prenotazioni.end()){
     prenotazioni.erase(iter);
+    }
     iter=prenotazioni.begin();
     if(iter==prenotazioni.end()){
         prenotato=false;
@@ -95,7 +97,9 @@ void Tavolo::paga(){
 void Tavolo::rimuouvicomanda(Comanda* _comanda){
     set<Comanda*>::iterator iter;
     iter=comande.find(_comanda);
+    if(iter!=comande.end()){
     comande.erase(iter);
+}
 }
 
 void Tavolo::stampacomande(){
