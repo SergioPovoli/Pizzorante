@@ -175,7 +175,10 @@ private:
 public:
     Cliente(string _nome, string _cognome, string _numero_tel);
     ~Cliente();
-   friend ostream& operator <<(ostream& os, const Cliente& _cliente);
+    void modifica_nome(string _nome);
+    void modifica_cognome (string _cognome);
+    void modifica_numero_tel(string _numero_tel);
+    friend ostream& operator <<(ostream& os, const Cliente& _cliente);
 };
 
 ostream& operator <<(ostream& os, const Cliente& _cliente);
