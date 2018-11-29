@@ -6,7 +6,7 @@ Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 	nome = _nome;
 }
 
-Prodotto::Prodotto (Prodotto& _p){
+/*Prodotto::Prodotto (Prodotto& _p){
 	set<Ingrediente *>::iterator iter;
 	reparto = _p.reparto;
 	costo = _p.costo;
@@ -15,7 +15,7 @@ Prodotto::Prodotto (Prodotto& _p){
 	for (iter = ingredienti.begin(); iter != ingredienti.end(); iter++){
 		_p.ingredienti.insert(*iter);
 	}
-}
+}*/
 
 void Prodotto::set_ingredienti( Ingrediente* _ingredienti){
 	set<Ingrediente *>::iterator iiter;

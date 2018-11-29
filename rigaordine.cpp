@@ -23,11 +23,16 @@ void RigaOrdine::set_nota(string _n){
 	nota = _n;		
 }
 
+bool RigaOrdine::operator < (const RigaOrdine& _ro) const{
+	return ((&prodotto)<(&(_ro.prodotto)));
+}
+
 ostream& operator << (ostream& os, const RigaOrdine& _ro){
 	os << "Prodotto: " <<  *(_ro.prodotto) << endl;
 	os << "Quantita': " << _ro.quantita << endl;
 	os << "Note: " << _ro.nota << endl;
 	os << "Totale Prodotto: Euro " << _ro.sub_totale;
+	os << endl;
 	return os;
 }
 

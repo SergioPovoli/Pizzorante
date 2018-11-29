@@ -27,8 +27,8 @@ int main(int argc, char** argv) {
     //cout<<endl;
     //test_prenotazione();
     //test_Prodotto();
-    
-    test_riga_ordine();
+    test_takeAway();
+    //test_riga_ordine();
     
 	return 0;
 }
