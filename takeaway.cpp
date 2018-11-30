@@ -36,14 +36,14 @@ float TakeAway::aggiorna_sub_totale() {
 	return sub_totale;
 }
 
-void TakeAway::add_prodotti_take(RigaOrdine _prodotto){
-	add_prodotti(_prodotto);
+void TakeAway::add_prodotti_take(int _q, string _n, Prodotto* _p){
+	add_prodotti(_q, _n, _p);
 	sub_totale = aggiorna_sub_totale();
 
 }
 
-void TakeAway::remove_prodotti_take(RigaOrdine _prodotto){
-	remove_prodotti(_prodotto);
+void TakeAway::remove_prodotti_take(int _q, string _n, Prodotto* _p){
+	remove_prodotti(_q, _n, _p);
 	sub_totale = aggiorna_sub_totale();
 }
 
@@ -78,6 +78,6 @@ void test_takeAway(){
 	RigaOrdine ord(9, "Ben cotto", &p1);
 	Responsabile r("Giacomo","Planke",185790);
 	TakeAway take(4, "Naturale", &p, 2018, 12, 1, 15, 34, 16, &r);
-	take.add_prodotti_take(ord);
+	take.add_prodotti_take(9, "Ben cotto", &p1);
 	cout << take;
 }

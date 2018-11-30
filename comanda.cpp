@@ -30,13 +30,13 @@ float Comanda::aggiorna_sub_totale() {
 	return sub_totale;
 }
 
-void Comanda::add_prodotti_comanda(RigaOrdine _prodotto){
-	add_prodotti(_prodotto);
+void Comanda::add_prodotti_comanda(int _q, string _n, Prodotto* _p){
+	add_prodotti(_q, _n, _p);
 	sub_totale = aggiorna_sub_totale();
 }
 
-void Comanda::remove_prodotti_comanda(RigaOrdine _prodotto){
-	remove_prodotti(_prodotto);
+void Comanda::remove_prodotti_comanda(int _q, string _n, Prodotto* _p){
+	remove_prodotti(_q, _n, _p);
 	sub_totale = aggiorna_sub_totale();
 }
 

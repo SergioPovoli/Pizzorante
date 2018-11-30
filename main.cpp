@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     //test_consegna();
     //test_tavolo();
     //test_data();
-	//test_Ordine();
+	test_Ordine();
     //test_data();
     //test_prenotazione();
     //test_takeAway();

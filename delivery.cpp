@@ -38,13 +38,13 @@ float Delivery::aggiorna_sub_totale() {
 	return sub_totale;
 }
 
-void Delivery::add_prodotti_delivery(RigaOrdine _prodotto){
-	add_prodotti(_prodotto);
+void Delivery::add_prodotti_delivery(int _q, string _n, Prodotto* _p){
+	add_prodotti(_q, _n, _p);
 	sub_totale = aggiorna_sub_totale();
 }
 
-void Delivery::remove_prodotti_delivery(RigaOrdine _prodotto){
-	remove_prodotti(_prodotto);
+void Delivery::remove_prodotti_delivery(int _q, string _n, Prodotto* _p){
+	remove_prodotti(_q, _n, _p);
 	sub_totale = aggiorna_sub_totale();
 }
 
@@ -88,6 +88,6 @@ void test_delivery(){
 	RigaOrdine ord(9, "Ben cotto", &p1);
 	Responsabile r("Giacomo","Planke",185790);
 	Delivery deli(7, "Frizzante", &p, 2018, 16, 32, 14,63, 12, &r, "Fermi", "Trento", 191, 38123, "Buffa", "Irene", "3334448969");
-	deli.add_prodotti_delivery(ord); 
+	deli.add_prodotti_delivery(9, "Ben cotto", &p1); 
 	cout << deli;
 }
