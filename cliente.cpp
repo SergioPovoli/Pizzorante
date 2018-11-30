@@ -5,7 +5,6 @@ Cliente::Cliente(string _nome, string _cognome, string _numero_tel):Persona(_nom
 }
 
 Cliente::~Cliente(){
-    cout<<"Distrutto";
 }
 
 void Cliente::modifica_nome(string _nome){
@@ -28,5 +27,11 @@ ostream& operator <<(ostream& os, const Cliente& _cliente){
 
 void test_cliente(){
     Cliente c("Nicola","Fiorello","3490754511");
+    cout << c;
+    c.modifica_nome("Sergio");
+    cout << c;
+    c.modifica_cognome("Povoli");
+    cout << c;
+    c.modifica_numero_tel("3356020307");
     cout << c;
 }
