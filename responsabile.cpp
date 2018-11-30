@@ -28,4 +28,10 @@ void Responsabile::modifica_cognome(string _cognome){
 void test_responsabile(){
     Responsabile r("Giacomo","Planke",185790);
     cout << r;
+    r.modifica_num_matricola(184956);
+    cout << r;
+    r.modifica_nome("Carlo");
+    cout << r;
+    r.modifica_cognome("Pisetta");
+    cout << r;
 }

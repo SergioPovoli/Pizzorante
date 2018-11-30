@@ -4,6 +4,7 @@ Prodotto::Prodotto(string _nome, Reparto _reparto, float _costo){
 	reparto = _reparto;
 	costo = _costo;
 	nome = _nome;
+	disponibile = true;
 }
 
 /*Prodotto::Prodotto (Prodotto& _p){
@@ -44,6 +45,13 @@ void Prodotto::remove_ingrediente (Ingrediente* _ingrediente){
 	if (iter != ingredienti.end()){
 		ingredienti.erase(iter);
 	}
+	disponibile=true;
+    for(iter=ingredienti.begin();iter!=ingredienti.end();++iter)
+        if(!(*iter)->get_disponibile())
+        {
+            disponibile=false;
+            break;
+        }
 }
 
 bool Prodotto::get_disponibile()const{
@@ -65,6 +73,7 @@ bool Prodotto::operator < (const Prodotto& _prodotto)const{
 ostream& operator << (ostream& os, const Prodotto& _prodotto){
 	set<Ingrediente *>::iterator iiter;
 	set<Allergene>::iterator aiter;
+	set<Allergene> allergene;
     os<< "- "<<_prodotto.nome<<" -"<<endl;
 	os << _prodotto.costo << " Euro "<< endl << "Reparto: ";
 	switch(_prodotto.reparto){
@@ -84,8 +93,13 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
 	for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); ++iiter){
 		os << *(*iiter);
 	}
-   /* os << endl<< "Allergeni Totali: " << endl;
-	for (aiter = _prodotto.allergeni.begin(); aiter != _prodotto.allergeni.end(); ++aiter){
+    os << endl<< "Allergeni Totali: " << endl;
+    for (iiter = _prodotto.ingredienti.begin(); iiter != _prodotto.ingredienti.end(); ++iiter){
+		for (aiter = (*iiter)->get_allergeni_begin(); aiter != (*iiter)->get_allergeni_end(); ++aiter){
+			allergene.insert(*aiter);
+		}
+	}
+	for (aiter = allergene.begin(); aiter != allergene.end(); ++aiter){
 		switch(*aiter){
             case 0: os<< "Glutine" <<endl; break;
             case 1: os<< "Crostacei" <<endl; break;
@@ -102,18 +116,31 @@ ostream& operator << (ostream& os, const Prodotto& _prodotto){
             case 12: os<< "Molluschi" <<endl; break;
             default: os<< "Errore" << endl;
         }
-	}*/
+	}
 	os << endl;
 	return os;
 }
 
 void test_Prodotto(){
 	Prodotto p("Acqua", BAR, 1);
+	cout << p << endl;
 	Ingrediente i("h2o", 0000, false, false);
 	i.add_allergene(GLUTINE);
 	i.add_allergene(MOLLUSCHI);
 	Ingrediente i2("Bicchiere", 1, true, false);
+	i2.add_allergene(MOLLUSCHI);
 	p.set_ingredienti(&i);
+	cout << p << endl;
 	p.set_ingredienti(&i2);
-	cout << p;
+	cout <<  p << endl;
+	p.remove_ingrediente (&i);
+	cout << p << endl;
+	p.set_costo(3);
+	cout << p << endl;
+	bool disp;
+	disp = p.get_disponibile();
+	cout << "Disponibile: " << disp << endl;
+	float cost;
+	cost = p.get_costo();
+	cout << "Costo: " << cost << endl;
 }
