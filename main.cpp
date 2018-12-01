@@ -16,17 +16,19 @@ int main(int argc, char** argv) {
     //test_Ingrediente(); --> OK
     //test_Prodotto(); --> OK
     //test_riga_ordine(); -->OK
+    //test_consegna(); -->OK
+    //test_data(); --> OK
+    
+    //test_Ordine(); --> NO Non funziona il remove
+    //test_takeAway(); -->NO Non funziona il remove
+    //test_delivery(); -->NO Non funziona il remove
     
     
-    
-    //test_consegna();
     //test_tavolo();
-    //test_data();
-	test_Ordine();
-    //test_data();
+    
     //test_prenotazione();
-    //test_takeAway();
-    //test_delivery();
+    
+    
     
 	return 0;
 }

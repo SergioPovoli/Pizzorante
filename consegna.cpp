@@ -39,4 +39,14 @@ void Consegna::modifica_cliente(string _nome, string _cognome, string _numero){
 void test_consegna(){
     Consegna c("Via Picarel", "Vezzano", 11, 38096, "Sergio", "Povoli", "3490754511");
     cout << c;
+    c.modifica_cap(38123);
+	cout << c << endl;
+	c.modifica_citta("Trento");
+	cout << c << endl;
+	c.modifica_cliente("Anna", "Fait", "0461897645");
+	cout << c << endl;
+	c.modifica_numero(13);
+	cout << c << endl;
+	c.modifica_via("Matti");
+	cout << c << endl; 
 }

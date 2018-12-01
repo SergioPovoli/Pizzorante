@@ -88,6 +88,28 @@ void test_delivery(){
 	RigaOrdine ord(9, "Ben cotto", &p1);
 	Responsabile r("Giacomo","Planke",185790);
 	Delivery deli(7, "Frizzante", &p, 2018, 16, 32, 14,63, 12, &r, "Fermi", "Trento", 191, 38123, "Buffa", "Irene", "3334448969");
+	cout << deli << endl;
 	deli.add_prodotti_delivery(9, "Ben cotto", &p1); 
+	cout << deli << endl;
+	Data cons;
+	cons = deli.get_data_consegna();
+	cout <<"DATA " << cons << endl;
+	Responsabile* resp;
+	resp = deli.get_responsabile();
+	cout << "RESP " << *resp << endl;
+	Responsabile r1("Gino","Gioppi",666999);
+	deli.set_responsabile(&r1);
+	cout << deli << endl;
+	deli.set_data(2019,1,1,0,0,0);
+	cout << deli << endl;
+	deli.remove_prodotti_delivery(7, "Frizzante", &p);
+	cout << deli << endl;
+	float tot;
+	tot = deli.get_sub_totale();
+	cout << "TOT " << tot << endl;
+	Consegna via = deli.get_consegna();
+	//via = ;
+	cout << "Consegna " << via <<endl ;
+	deli.set_consegna("Via Verdi", "Tenna", 1, 38070, "Maria", "Del Bepi", "0471653248");
 	cout << deli;
 }
