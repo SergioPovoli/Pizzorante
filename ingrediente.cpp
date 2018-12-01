@@ -82,17 +82,22 @@ ostream& operator << (ostream& os, const Ingrediente& ingrediente){
 }
 
 void test_Ingrediente(){
-	Ingrediente ingrediente("Acqua", 0000, true, false);
+	Ingrediente ingrediente("Acqua", 1049, true, false);
+	cout << ingrediente << endl;
 	ingrediente.add_allergene(ANIDRIDE_SOLFOROSA);
+	cout << ingrediente << endl;
 	ingrediente.add_allergene(MOLLUSCHI);
 	ingrediente.add_allergene(CROSTACEI);
 	cout << ingrediente << endl;
+	ingrediente.remove_allergene(CROSTACEI);
+	cout << ingrediente << endl;
+	ingrediente.set_surgelato(true);
+	cout << ingrediente << endl;
 	ingrediente.set_disponibile(false);
+	cout << ingrediente << endl;
 	bool disp;
 	disp = ingrediente.get_disponibile();
-	cout << ingrediente << endl;
 	cout <<"Disonibile: "<<  disp << endl;
-	// SBAGLIATO
 	set<Allergene>::iterator iter;
 	cout << "Allergeni: " << endl;
 	for (iter = ingrediente.get_allergeni_begin(); iter != ingrediente.get_allergeni_end(); iter++ ){

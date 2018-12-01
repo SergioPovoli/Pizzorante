@@ -11,8 +11,9 @@ Ordine::~Ordine(){
     id_ordine--;
 }
 
-void Ordine::add_prodotti(RigaOrdine _prodotto){
-	prodotti.insert(_prodotto);
+void Ordine::add_prodotti(int _q, string _n, Prodotto* _p){
+	riga = RigaOrdine(_q, _n, _p);
+	prodotti.insert(riga);
 /*	set<RigaOrdine>::iterator iter;
 	sub_totale = 0;
 	for(iter = prodotti.begin(); iter != prodotti.end(); iter++){
@@ -20,10 +21,12 @@ void Ordine::add_prodotti(RigaOrdine _prodotto){
 	}*/
 }
 
-void Ordine::remove_prodotti(RigaOrdine _prodotto){
+void Ordine::remove_prodotti(int _q, string _n, Prodotto* _p){
 	set<RigaOrdine>::iterator iter;
-	iter = prodotti.find(_prodotto);
+	riga = RigaOrdine(_q, _n, _p);
+	iter = prodotti.find(riga);
 	if (iter != prodotti.end()){
+		cout << "++++++++++++++++++Trovato!+++++++++++++++++++" << endl;
 		prodotti.erase(iter);
 	}
 }
@@ -72,12 +75,22 @@ void test_Ordine(){
 	p.set_ingredienti(&i);
 	p.set_ingredienti(&i2);
 	Ordine o(4, "Naturale", &p);
+	//cout << o << endl;
 	Prodotto p1("Pane", RISTORANTE, 3);
 	Ingrediente i3("Farina", 1023, true, false);
 	Ingrediente i4("Lievito", 1, true, true);
 	p1.set_ingredienti(&i3);
 	p1.set_ingredienti(&i4);
 	RigaOrdine ord(9, "Ben cotto", &p1);
-	o.add_prodotti(ord);
-	cout << o;
+	o.add_prodotti(9, "Ben cotto", &p1);
+	//cout << o << endl;
+	o.remove_prodotti(9, "Ben cotto", &p1);
+	cout << o << endl;
+	Data  oggi;
+	oggi = o.get_data();
+	//cout << "Oggi: " << oggi << endl;
+	int num;
+	num = o.get_id_ordine();
+	//cout << "Numero " << num << endl;
+	
 }

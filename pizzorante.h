@@ -131,8 +131,8 @@ class Ordine{
 	public:
 		Ordine(int _q, string _n, Prodotto* _p);
         ~Ordine();
-		void add_prodotti(RigaOrdine _prodotto);
-		void remove_prodotti(RigaOrdine _prodotto);
+		void add_prodotti(int _q, string _n, Prodotto* _p);
+		void remove_prodotti(int _q, string _n, Prodotto* _p);
 	//	float get_sub_totale()const;
 	//	void set_sub_totale(float _tot);
 		set<RigaOrdine>::iterator get_begin_prodotti();
@@ -328,8 +328,8 @@ public:
     void modifica_tavolo(Tavolo* t);
     void modifica_cameriere(Cameriere* c);
     float aggiorna_sub_totale() ;
-    void add_prodotti_comanda(RigaOrdine _prodotto);
-    void remove_prodotti_comanda(RigaOrdine _prodotto);
+    void add_prodotti_comanda(int _q, string _n, Prodotto* _p);
+    void remove_prodotti_comanda(int _q, string _n, Prodotto* _p);
     float get_sub_totale() const;
     bool operator <(Comanda& _ordine);
     friend ostream& operator <<(ostream& os, Comanda& _comanda);
@@ -350,8 +350,8 @@ class TakeAway: public Ordine {
 		void set_responsabile(Responsabile* _resp);
 		void set_data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
 		float aggiorna_sub_totale() ;
-		void add_prodotti_take(RigaOrdine _prodotto);
-		void remove_prodotti_take(RigaOrdine _prodotto);
+		void add_prodotti_take(int _q, string _n, Prodotto* _p);
+		void remove_prodotti_take(int _q, string _n, Prodotto* _p);
 		float get_sub_totale() const;
 		friend ostream& operator << (ostream& os,  TakeAway& ta );
 };
@@ -373,8 +373,8 @@ class Delivery:public Ordine {
 		void set_responsabile(Responsabile* _resp);
 		void set_data(unsigned int _anno, unsigned int _mese, unsigned int _giorno, unsigned int _ora, unsigned int _minuto, unsigned int _secondi);
 		float aggiorna_sub_totale();
-		void add_prodotti_delivery(RigaOrdine _prodotto);
-		void remove_prodotti_delivery(RigaOrdine _prodotto);
+		void add_prodotti_delivery(int _q, string _n, Prodotto* _p);
+		void remove_prodotti_delivery(int _q, string _n, Prodotto* _p);
 		float get_sub_totale() const;
 		Consegna get_consegna() const;
 		void set_consegna(string _via, string _citta, int _numero, int _cap,  string _nome, string _cognome, string _num_tel);

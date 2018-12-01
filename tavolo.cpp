@@ -123,6 +123,7 @@ void Tavolo::stampacomande(){
 
 void test_tavolo(){
     Tavolo t(15,2,SALA1,0,1);
+    cout << t << endl;
     Responsabile r("Marco","Garbari",69);
     Prenotazione p("Sergio","Povoli","3490754511",2,&r,2018,30,11,8,30,0,&t);
     t.inserisci_prenotazione(&p);

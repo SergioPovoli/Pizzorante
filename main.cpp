@@ -9,23 +9,26 @@ using namespace std;
 int main(int argc, char** argv) {
     
     // PROVATI IN DATA VENERDI' 30 NOVEMBRE.
-    // test_persona();  -> OK
-    // test_cliente(); --> OK, LE GET NON SERVONO ?
-    // test_cameriere(); --> OK, LA GET NUMERO MATRICOLA NON C'E' : SERVE ?
-    // test_responsabile(); --> OK, LA GET NUMERO MATRICOLA NON C'E' : SERVE ?
-    // test_data();
+    //test_persona();  -> OK
+    //test_cliente(); --> OK, LE GET NON SERVONO ?
+    //test_cameriere(); --> OK, LE GET NON SEVONO?
+    //test_responsabile(); --> OK, GET Non credo servano
+    //test_Ingrediente(); --> OK
+    //test_Prodotto(); --> OK
+    //test_riga_ordine(); -->OK
+    //test_consegna(); -->OK
+    //test_data(); --> OK
+    
+    //test_Ordine(); --> NO Non funziona il remove
+    //test_takeAway(); -->NO Non funziona il remove
+    //test_delivery(); -->NO Non funziona il remove
     
     
-    //test_consegna();
     //test_tavolo();
-	//test_Ordine();
-    //cout<<endl;
-    //test_Ingrediente();
+    
     //test_prenotazione();
-    //test_Prodotto();
-    //test_takeAway();
-    //test_riga_ordine();
-    //test_delivery();
+    
+    
     
 	return 0;
 }
