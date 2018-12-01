@@ -6,8 +6,8 @@ Responsabile::Responsabile(string _nome, string _cognome, int _num_matricola):Pe
 }
 
 ostream& operator <<(ostream& os, Responsabile &_responsabile){
-    os<<_responsabile.get_nome()<<" "<<_responsabile.get_cognome()<<" MR: ";
-    os<<_responsabile.num_matricola<<endl;
+    os<<_responsabile.get_nome()<<" "<<_responsabile.get_cognome()<<" | " ;
+    os<<_responsabile.num_matricola<<" |"<<endl;
     return os;
 }
 
@@ -26,6 +26,12 @@ void Responsabile::modifica_cognome(string _cognome){
 }
 
 void test_responsabile(){
-    Responsabile r("Giacomo","Planke",185790);
-    cout << r;
+    Responsabile c("Carlotta","Bressan",196739);
+    cout<<c;
+    c.modifica_nome("Ginevra");
+    cout<<c;
+    c.modifica_cognome("Endrighi");
+    cout <<c;
+    c.modifica_num_matricola(1234567);
+    cout <<c;
 }
