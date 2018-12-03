@@ -75,7 +75,9 @@ void test_Ordine(){
 	p.set_ingredienti(&i);
 	p.set_ingredienti(&i2);
 	Ordine o(4, "Naturale", &p);
-	//cout << o << endl;
+    cout<< endl<< "-------------------------"<<endl;
+	cout << o << endl;
+    cout<< endl<< "-------------------------"<<endl;
 	Prodotto p1("Pane", RISTORANTE, 3);
 	Ingrediente i3("Farina", 1023, true, false);
 	Ingrediente i4("Lievito", 1, true, true);
@@ -83,9 +85,13 @@ void test_Ordine(){
 	p1.set_ingredienti(&i4);
 	RigaOrdine ord(9, "Ben cotto", &p1);
 	o.add_prodotti(9, "Ben cotto", &p1);
-	//cout << o << endl;
-	o.remove_prodotti(9, "Ben cotto", &p1);
+    cout<< endl<< "-------------------------"<<endl;
 	cout << o << endl;
+    cout<< endl<< "-------------------------"<<endl;
+	o.remove_prodotti(9, "Ben cotto", &p1);
+        cout<< endl<< "-------------------------"<<endl;
+	cout << o << endl;
+        cout<< endl<< "-------------------------"<<endl;
 	Data  oggi;
 	oggi = o.get_data();
 	//cout << "Oggi: " << oggi << endl;

@@ -23,6 +23,15 @@ int main(int argc, char** argv) {
     //test_takeAway(); -->NO Non funziona il remove
     //test_delivery(); -->NO Non funziona il remove
     
+    //-----------------------------------------------
+    
+    // PROVATI IN DATA VENERDI' 01 DICEMBRE.
+    test_Ordine();
+    
+    
+    
+     //-----------------------------------------------
+    
     
     //test_tavolo();
     
